@@ -2,30 +2,32 @@
 #define MASSAS_HPP
 #include <string>
 #include <iostream>
+#include <vector>
+#include <fstream>
 
-class Massas
+class Massa
 {
 private:
     std::string nome;
     int quantidade;
     float preco;
 public:
-    void adicionaUnidade(int quantia);
     void removeUnidade(int quantia);
-    int verQuantidade();
-    float verPreco();
-    Massas(std::string Nome);
-    ~Massas();
+    int verQuantidadeDe(std::string Nome);
+    float verPrecoDe(std::string Nome);
+    Massa(std::string Nome);
+    ~Massa();
 };
 
-Massas::Massas(std::string Nome)
+class Massas
 {
-    this->nome=Nome;
-}
-
-Massas::~Massas()
-{
-}
-
+private:
+    std::vector<Massa> massa;
+public:
+    Massa* criaUnidade(std::string Nome);
+    Massa* encontraUnidade(std::string Nome);
+    Massas();
+    ~Massas();
+};
 
 #endif
