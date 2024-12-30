@@ -1,11 +1,13 @@
 #ifndef MASSAS_HPP
 #define MASSAS_HPP
+#include "item.hpp"
+
 #include <string>
 #include <iostream>
 #include <vector>
 #include <fstream>
 
-class Massa
+class Massa : public item
 {
 private:
     std::string nome;
