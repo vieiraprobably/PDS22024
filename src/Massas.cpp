@@ -35,7 +35,7 @@ public:
         this->quantidade=0;
         this->preco=Preco;
     }
-    ~Massa();
+    ~Massa(){}
 };
 
 class Massas //controlador de massas, quero generalizar para controlar todo o estoque
