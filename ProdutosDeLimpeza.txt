@@ -1,0 +1,9 @@
+Detergente 39 2.50
+Sabão_em_Pó 8 8.90
+Desinfetante 20 4.75
+Lustra Moveis 12 9.99
+Sabao_em_Barra 45 10.99
+Amaciante 100 29.88
+Balde 45 32.5
+Rodo 90 16.99
+Luva 55 12.89
