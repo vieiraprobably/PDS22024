@@ -2,6 +2,7 @@
 
 #include <string>
 #include <iostream>
+#include <sstream>
 #include <vector>
 #include <fstream>
 
@@ -25,6 +26,12 @@ public:
     float verPreco(){
         return preco;
     }
+    void imprimeProduto(){
+        std::cout << "Produto: " << nome << "\n";
+        std::cout << "Quantidade: " << quantidade << "\n";
+        std::cout << "Preço: R$" << preco << "\n";
+        std::cout << "-------------------" << std::endl;
+    }
     Massa(std::string Nome, int Quantidade, float Preco){
         this->nome=Nome;
         this->quantidade=Quantidade;
@@ -38,7 +45,7 @@ public:
     ~Massa(){}
 };
 
-class Massas //controlador de massas, quero generalizar para controlar todo o estoque
+class Massas : public item
 {
 private:
     std::vector<Massa> massa;
@@ -53,7 +60,9 @@ public:
     Massa* criaUnidade(std::string Nome, int Quantidade, float Preco){
         if(encontraUnidade(Nome)==nullptr){
             this->massa.push_back(Massa(Nome, Quantidade, Preco));
+            return encontraUnidade(Nome);
         }else{
+            modificaUnidadeDe(Nome, Quantidade, 1);
             return encontraUnidade(Nome);
         }
     }    
@@ -71,15 +80,38 @@ public:
     bool modificaUnidadeDe(std::string Nome, int quantia, bool mod){
         Massa* m=encontraUnidade(Nome);
         if(m!=nullptr){
-            m->modificaUnidade(quantia*(2*mod-1));
+            m->modificaUnidade(quantia*((2*mod)-1));//1=soma, 0=subtracao
         }else{return 1;}
         return 0;
     }
+    void imprimeProdutos(){
+        for(Massa m : massa){
+            m.imprimeProduto();
+        }
+    }
     Massas(){
-        //abrir e receber informacoes do arquivo
-        //criar se nao existir
+        std::ifstream bancoDeDados("../data/massas.txt");
+        if (!bancoDeDados.is_open()){
+            std::cerr << "Erro ao abrir o arquivo" << std::endl;
+            return;
+        }
+        std::string nomeProduto, linha;
+        int quantidade;
+        float preco;
+        while (std::getline(bancoDeDados, linha)) {
+            std::istringstream stream(linha);
+            std::getline(stream, nomeProduto, ' ');  
+            stream >> quantidade >> preco; 
+            criaUnidade(nomeProduto, quantidade, preco);
+        }
+        bancoDeDados.close();
     }
     ~Massas(){
-        //fechar arquivo
+        std::remove("../data/massas.txt");
+        std::ofstream bancoDeDados("../data/massas.txt");
+        for(Massa m : massa){
+            bancoDeDados << m.verNome() << " " << m.verPreco() << " " << m.verQuantidade() << "\n";
+        }
+        bancoDeDados.close();
     }
 };
