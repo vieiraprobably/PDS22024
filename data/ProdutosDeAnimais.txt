@@ -1,0 +1,6 @@
+Ração_para_Cachorro 10 40.00
+Brinquedo_para_Gato 45 15.50
+Coleira 30 25.00
+Cama_para_Cachorro 27 100.00
+Areia_para_Gato 78 35.00
+Tapete_Higienico 120 25.65
