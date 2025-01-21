@@ -1,6 +1,12 @@
 #ifndef ITEM_HPP
 #define ITEM_HPP
 
+#include <string>
+#include <iostream>
+#include <sstream>
+#include <vector>
+#include <fstream>
+
 class item{
     public:
     void imprimeProdutos();
