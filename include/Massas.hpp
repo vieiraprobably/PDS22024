@@ -2,11 +2,6 @@
 #define MASSAS_HPP
 #include "item.hpp"
 
-#include <string>
-#include <iostream>
-#include <vector>
-#include <fstream>
-
 class Massa : public item
 {
 private:
