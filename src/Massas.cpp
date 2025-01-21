@@ -1,12 +1,6 @@
 #include "Massas.hpp"
 
-#include <string>
-#include <iostream>
-#include <sstream>
-#include <vector>
-#include <fstream>
-
-class Massa : public item
+class Massa
 {
 private:
     std::string nome;
