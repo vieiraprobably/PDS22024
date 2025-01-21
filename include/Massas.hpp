@@ -2,7 +2,7 @@
 #define MASSAS_HPP
 #include "item.hpp"
 
-class Massa : public item
+class Massa
 {
 private:
     std::string nome;
