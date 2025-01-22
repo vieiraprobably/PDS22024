@@ -3,10 +3,8 @@
 #include <chrono>
 #include <ctime>
 
-// Lembrar de verificar se vai realmente precisar do atributo nível de acesso (herança possibilidade)
-
 class Usuario {
-private:
+protected:
     int id;
     std::string nome;
     std::string email;
@@ -16,9 +14,7 @@ private:
     std::chrono::system_clock::time_point dataCriacao;
 
 public:
-
     Usuario() : id(0), dataCriacao(std::chrono::system_clock::now()) {}
-
     Usuario(int id, const std::string& nome, const std::string& email, const std::string& senha,
             const std::string& telefone, const std::string& nivelAcesso)
         : id(id), nome(nome), email(email), senha(senha), telefone(telefone), nivelAcesso(nivelAcesso),
@@ -35,8 +31,6 @@ public:
         std::time_t data = std::chrono::system_clock::to_time_t(dataCriacao);
         return std::ctime(&data); 
     }
-
-
     void setId(int novoId) { id = novoId; }
     void setNome(const std::string& novoNome) { nome = novoNome; }
     void setEmail(const std::string& novoEmail) { email = novoEmail; }
@@ -45,4 +39,5 @@ public:
     void setNivelAcesso(const std::string& novoNivelAcesso) { nivelAcesso = novoNivelAcesso; }
 
 
+ 
 };
