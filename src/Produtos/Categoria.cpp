@@ -8,6 +8,7 @@ enum class Categoria {
     ProdutoLimpeza,
     Enlatados,
     Laticinios,
+    GraosECereais,
     Massas,
     Bebidas,
     HigienePessoal,
