@@ -1,0 +1,16 @@
+Farfalline 1
+Gnocchi 1
+Rigatoni 2
+Penne 3
+Fusilli 5
+Conchiglie 8
+Fibonacci 13
+Tagliatelle 21
+Spaghetti 34
+Linguine 55
+Lasagne 89
+Fettuccine 144
+Fedelini 233
+Bavette 377
+Bucatini 610
+Cavatappi 987
