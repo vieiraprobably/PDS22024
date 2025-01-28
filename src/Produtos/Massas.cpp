@@ -1,4 +1,6 @@
 #include "Massas.hpp"
+#include <sstream>
+#include "item.cpp" 
 
 class Massa
 {

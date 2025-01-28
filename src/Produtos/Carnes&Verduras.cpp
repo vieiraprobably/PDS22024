@@ -11,12 +11,12 @@ float preco;
 int quantidade;
 string tipo;
 
-}
+};
 
 class Boi: public Carnes {
 
 int picanha = 100;
-int alcatra = 150:
+int alcatra = 150;
 int patinho = 200;
 int cumpim = 200;
 int contrafile = 150;
@@ -29,12 +29,12 @@ int coxa = 800;
 int asa = 800;
 int peito = 1000;
 int foot = 500;
-int coracao = 500
+int coracao = 500;
 };
 
 class Porco: public Carnes {
 
-int lompo - 500;
+int lompo = 500;
 int copalombro = 600;
 int linguica = 500;
 int pernil = 500;
@@ -51,7 +51,7 @@ class Peixes: public Carnes {
     int lambarim;
 
 
-}
+};
 class Frutas {
 public:
 
@@ -71,7 +71,7 @@ public:
 
 int main(){
 
-FILE *arq.
+FILE *arq;
 
 arq = fopen ("estoque.txt", "r");
 
