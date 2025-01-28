@@ -7,7 +7,6 @@
 #include <vector>
 
 
-// Implementação da classe ProdutoDeAnimal
 ProdutoDeLimpeza::ProdutoDeLimpeza(const std::string& nome, int quant, float precoProduto)
     : nomeProduto(nome), quantidade(quant), preco(precoProduto) {}
 
@@ -41,7 +40,6 @@ void ProdutoDeLimpeza::imprimeProduto() const {
     std::cout << "-------------------" << std::endl;
 }
 
-// Implementação da classe ProdutosDeLimpeza
 ProdutosDeLimpeza::ProdutosDeLimpeza(const std::string& caminhoBanco) {
     std::ifstream bancoDeDados(caminhoBanco);
     if (!bancoDeDados.is_open()) {
