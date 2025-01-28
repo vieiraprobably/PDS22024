@@ -7,7 +7,6 @@
 #include "item.hpp"
 
 
-// Classe ProdutoDeAnimal (encapsula os dados de um produto)
 class ProdutoDeAnimal {
 
 private:
@@ -30,15 +29,14 @@ public:
 
 };
 
-// Relação de herança entre item e ProdutosDeAnimais
 class ProdutosDeAnimais : public item {
 
 private:
-    std::vector<class ProdutoDeAnimal> produtos; // Vetor de produtos
+    std::vector<class ProdutoDeAnimal> produtos; 
 
 public:
-    ProdutosDeAnimais(const std::string& caminhoBanco); // Construtor da classe ProdutosDeAnimais para inicializar o banco de dados
-    ~ProdutosDeAnimais(); // Destrutor da classe ProdutosDeAnimais para fechar o banco de dados
+    ProdutosDeAnimais(const std::string& caminhoBanco); 
+    ~ProdutosDeAnimais(); 
 
     void criarUnidade(const std::string& nomeNovoProduto, int novaQuantidade, float novoPreco);
     void encontraUnidade(const std::string& filePath, const std::string& nomeDoProdutoProcurado);
@@ -46,4 +44,4 @@ public:
     void imprimirProdutos();
 };
 
-#endif // PRODUTOSDEANIMAIS_HPP
+#endif
