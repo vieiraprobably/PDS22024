@@ -1,0 +1,16 @@
+Farfalline 1 31.41
+Gnocchi 1  59.26
+Rigatoni 2 53.58
+Penne 3 97.93
+Fusilli 5 23.84
+Conchiglie 8 6.26
+Fibonacci 13 43.38
+Tagliatelle 21 32.79
+Spaghetti 34 50.28
+Linguine 55 84.19
+Lasagne 89 71.69
+Fettuccine 144 39.93
+Fedelini 233 75.10
+Bavette 377 58.20
+Bucatini 610 97.49
+Cavatappi 987 445.92

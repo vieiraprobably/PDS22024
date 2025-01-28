@@ -1,0 +1,42 @@
+{
+  "configurations": [
+    {
+      "name": "Windows (GCC)",
+      "includePath": [
+        "${workspaceFolder}/**",
+        "${env:USERPROFILE}\\MinGW\\include\\**"  // Corrigido para barra invertida no Windows
+      ],
+      "compilerPath": "${env:USERPROFILE}/MinGW/bin/gcc.exe",  // Caminho completo para o GCC
+      "cStandard": "${default}",
+      "cppStandard": "${default}",
+      "intelliSenseMode": "windows-gcc-x86",
+      "compilerArgs": [],
+      "windowsSdkVersion": "10.0.22000.0"
+    },
+    {
+      "name": "macOS (Clang)",
+      "includePath": [
+        "${workspaceFolder}/**",
+        "/usr/local/include/**"
+      ],
+      "compilerPath": "/usr/local/bin/clang",
+      "cStandard": "${default}",
+      "cppStandard": "${default}",
+      "intelliSenseMode": "macos-clang-x64",
+      "compilerArgs": []
+    },
+    {
+      "name": "Linux (GCC)",
+      "includePath": [
+        "${workspaceFolder}/**",
+        "/usr/include/**"
+      ],
+      "compilerPath": "gcc",
+      "cStandard": "${default}",
+      "cppStandard": "${default}",
+      "intelliSenseMode": "linux-gcc-x64",
+      "compilerArgs": []
+    }
+  ],
+  "version": 4
+}
