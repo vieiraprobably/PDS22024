@@ -34,7 +34,7 @@ A aplicação utiliza arquivos .txt como banco de dados para armazenar informaç
 <a id="modelo-conceitual"></a>
 ## 📝 Modelo Conceitual
 ![Diagrama de Classe do Sistema]()
-*Diagrama UML simplificado das principais classes do sistema*
+[*Diagrama UML simplificado das principais classes do sistema*](https://github.com/vieiraprobably/PDS22024/issues/7#issue-2817635895)
 
 <a id="documentação-do-sistema"></a>
 ## 📃 Documentação do Sistema
