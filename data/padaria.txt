@@ -1,0 +1,13 @@
+PaoFrances 50 9,99  
+PaoIntegral 30 12,49  
+Croissant 20 15,99  
+PaoDeQueijo 40 14,49  
+BoloDeChocolate 60 24,99  
+Baguete 30 11,99  
+Presunto 25 18,99  
+Mussarela 30 22,49  
+PaoDeForma 40 10,49  
+EmpadaFrango 10 9,99  
+BiscoitoPolvilho 300 8,49  
+PaoDeBatata 40 16,49  
+TortaDeFrango 50 27,99  
