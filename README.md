@@ -65,7 +65,7 @@ Representa os funcionários que gerenciam o estoque, garantindo controle de aces
 Gera relatórios sobre os produtos disponíveis, movimentações realizadas e pedidos efetuados.  
 
 ### 🔹 **8. Gerenciador de Dados**  
-Responsável pela **leitura e escrita** dos dados em um arquivo `.txt`. Essa classe permite:  
+Responsável pela **leitura e escrita** dos dados em  arquivos `.txt`. Essa classe permite:  
 - **Ler dados** do arquivo.  
 - **Adicionar novas linhas** ao final do arquivo.  
 - **Buscar registros** por palavra-chave.  
@@ -84,6 +84,28 @@ Responsável pela **leitura e escrita** dos dados em um arquivo `.txt`. Essa cla
 ✅ Registro de movimentações de entrada e saída de estoque.  
 ✅ Geração de relatórios sobre estoque e movimentações.  
 ✅ Persistência de dados em arquivo de texto (`.txt`).  
+
+---
+
+## ⚙️ Fluxo de Funcionamento  
+
+1️⃣ **Cadastro de Produtos**  
+- O usuário adiciona um novo produto ao estoque, informando nome, categoria, quantidade e fornecedor.  
+
+2️⃣ **Gerenciamento de Pedidos**  
+- Quando um produto atinge um nível crítico de estoque, um pedido de reposição é criado.  
+- O status do pedido é atualizado conforme o andamento da solicitação.  
+
+3️⃣ **Movimentação de Estoque**  
+- Cada entrada ou saída de produto é registrada, com detalhes sobre a quantidade e o responsável pela operação.  
+
+4️⃣ **Geração de Relatórios**  
+- Relatórios periódicos são gerados para auxiliar na gestão do estoque.  
+
+5️⃣ **Persistência de Dados**  
+- Todas as informações são gerenciadas através da classe `PersistenciaDados`.  
+
+---
 
 <a id="tecnologias-utilizadas"></a>
 ## 🛠 Tecnologias Utilizadas
