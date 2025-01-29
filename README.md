@@ -100,7 +100,7 @@ Responsável pela **leitura e escrita** dos dados em  arquivos `.txt`. Essa clas
 - Cada entrada ou saída de produto é registrada, com detalhes sobre a quantidade e o responsável pela operação.  
 
 4️⃣ **Geração de Relatórios**  
-- Relatórios periódicos são gerados para auxiliar na gestão do estoque.  
+- Relatórios são gerados para auxiliar na gestão do estoque.  
 
 5️⃣ **Persistência de Dados**  
 - Todas as informações são gerenciadas através da classe `PersistenciaDados`.  
