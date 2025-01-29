@@ -64,7 +64,7 @@ Representa os funcionários que gerenciam o estoque, garantindo controle de aces
 ### 🔹 **7. Relatório**  
 Gera relatórios sobre os produtos disponíveis, movimentações realizadas e pedidos efetuados.  
 
-### 🔹 **8. Gerenciador de Dados**  
+### 🔹 **8. Persistência de Dados**  
 Responsável pela **leitura e escrita** dos dados em  arquivos `.txt`. Essa classe permite:  
 - **Ler dados** do arquivo.  
 - **Adicionar novas linhas** ao final do arquivo.  
