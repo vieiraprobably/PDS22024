@@ -107,7 +107,7 @@ Responsável pela **leitura e escrita** dos dados em  arquivos `.txt`. Essa clas
 
 ---
 
-# 📊 Design do Projeto
+## 📊 Design do Projeto
 
 O design do projeto foi desenvolvido no **Figma** e pode ser acessado através do link abaixo:
 
