@@ -107,6 +107,14 @@ Responsável pela **leitura e escrita** dos dados em  arquivos `.txt`. Essa clas
 
 ---
 
+# 📊 Design do Projeto
+
+O design do projeto foi desenvolvido no **Figma** e pode ser acessado através do link abaixo:
+
+[🔗 Acesse o Design no Figma](https://www.figma.com/design/8oKzeYT89yJ7rK6oEbXSdK/PDS-II?node-id=0-1&t=OGDshJbGERjOFYIG-1)
+
+---
+
 <a id="tecnologias-utilizadas"></a>
 ## 🛠 Tecnologias Utilizadas
 
