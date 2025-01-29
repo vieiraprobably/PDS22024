@@ -33,7 +33,7 @@ A aplicação utiliza arquivos .txt como banco de dados para armazenar informaç
 
 <a id="modelo-conceitual"></a>
 ## 📝 Modelo Conceitual
-![Diagrama de Classe do Sistema]()
+
 ![Diagrama de Classes](https://private-user-images.githubusercontent.com/107570879/407669625-9a634019-2801-44a6-a0cb-ad5a97522330.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzgxNDM0MTAsIm5iZiI6MTczODE0MzExMCwicGF0aCI6Ii8xMDc1NzA4NzkvNDA3NjY5NjI1LTlhNjM0MDE5LTI4MDEtNDRhNi1hMGNiLWFkNWE5NzUyMjMzMC5wbmc_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjUwMTI5JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI1MDEyOVQwOTMxNTBaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1mZThkMTcyYmRkMmI1ZThlMjIyMDdkZTc5OTU4YjE2OWYxYjY1NWJmMTFiNjRlZDg4NGMyZGMwYWNmZDhiZGUwJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCJ9.VWetWN3Mx_DsRCzR99ruoHnEgTg_ZYIslj8NelDRt_E)
 
 <a id="documentação-do-sistema"></a>
