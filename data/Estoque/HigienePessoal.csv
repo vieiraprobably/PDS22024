@@ -1,13 +1,13 @@
 ID,Nome,Quantidade,Preco,Fornecedor
-7000,"papel higiênico",30,25.00,Neve
-7001,"sabonete líquido",25,18.50,Dove
-7002,"shampoo",35,22.90,Neve
-7003,"condicionador",30,24.00,Dove
-7004,"creme dental",40,12.00,Colgate
-7005,"fio dental",20,8.50,Colgate
-7006,"desodorante roll-on",25,15.90,Neve
-7007,"absorvente higiênico",30,14.00,Dove
-7008,"lâmina de barbear",20,9.90,Colgate
-7009,"hidratante corporal",25,28.50,Neve
-7010,"lenço umedecido",40,19.90,Dove
-7011,"escova de dentes",35,7.50,Colgate
+70000,"papel higiênico",30,25.00,Neve
+70001,"sabonete líquido",25,18.50,Dove
+70002,"shampoo",35,22.90,Neve
+70003,"condicionador",30,24.00,Dove
+70004,"creme dental",40,12.00,Colgate
+70005,"fio dental",20,8.50,Colgate
+70006,"desodorante roll-on",25,15.90,Neve
+70007,"absorvente higiênico",30,14.00,Dove
+70008,"lâmina de barbear",20,9.90,Colgate
+70009,"hidratante corporal",25,28.50,Neve
+70010,"lenço umedecido",40,19.90,Dove
+70011,"escova de dentes",35,7.50,Colgate
