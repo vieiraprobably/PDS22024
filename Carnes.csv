@@ -1,6 +1,4 @@
-
-
-ID,"Nome",Quantidade,Preco, Fornecedor
+ID,Nome,Quantidade,Preco, Fornecedor
 15001,"Picanha", 800,69.99
 15002,"Alcatra" , 1200,62.99
 15003,"Patinho",2000,45.00"
