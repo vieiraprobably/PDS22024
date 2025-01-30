@@ -34,7 +34,7 @@ A aplicação utiliza arquivos .txt como banco de dados para armazenar informaç
 <a id="modelo-conceitual"></a>
 ## 📝 Modelo Conceitual
 
-![Diagrama de Classes](documents/diagrama-de-classes.pdf) 
+![Diagrama de Classes](documents/diagrama-de-classes-gerenciador-de-estoque.png) 
 
 O sistema é estruturado em diversas classes, cada uma com responsabilidades específicas para manter a organização e escalabilidade.  
 
@@ -148,49 +148,38 @@ O design do projeto foi desenvolvido no **Figma** e pode ser acessado através d
 <a id="estrutura-do-projeto"></a>
 ## 📂 Estrutura do Projeto
 ```bash
-├── data/                              # Dados persistidos
-│   ├── Carnes.txt
-│   ├── GraosECereais.txt
-│   ├── Laticionios.txt                
-│   ├── Massas.txt
-│   ├── ProdutosDeAnimais.txt
-│   ├── ProdutosDeLimpeza.txt       
-│   └── Verduras.txt
-├── include/                           # Headers
-│   ├── Controle.hpp
-│   ├── GraosECereais.hpp
-│   ├── Item.hpp
-│   ├── Laticionios.hpp                
-│   ├── Massas.hpp
-│   ├── ProdutosDeAnimais.hpp
-│   ├── ProdutosDeLimpeza.hpp       
-│   └── Verduras.hpp
+├── data/                              # Dados persistidos (CSV por categoria)
+│        Estoque.csv/
+│        ├── Carnes.csv
+│        ├── GraosECereais.csv
+│        ├── Laticinios.csv                
+│        └── ...                           # Arquivos restantes
+│
+├── include/                           # Headers unificados
+│   ├── Produto.hpp                    # Substitui headers específicos (Carnes.hpp, Laticionios.hpp, etc.)
+│   ├── Categoria.hpp
+│   ├── Fornecedor.hpp
+│   ├── GerenciadorDeEstoque.hpp
+│   ├── PersistenciaDeDados.hpp
+│   ├── MenuInterativo.hpp
+│   └── Admin.hpp
+│
 ├── src/
-│   ├── ControleEstoque/               # Lógica de controle
-│   │   └── Controle.cpp               
-│   ├── Produtos/                      # Implementações de produtos
-│   │   ├── Carnes.cpp
-│   │   ├── Categoria.cpp
-│   │   ├── GraosECereais.cpp
-│   │   ├── Item.cpp
-│   │   ├── Laticionios.cpp                
-│   │   ├── Massas.cpp
-│   │   ├── Produtos.cpp
-│   │   ├── ProdutosDeAnimais.cpp
-│   │   ├── ProdutosDeLimpeza.cpp       
-│   │   └── Verduras.cpp          
-│   ├── Servicos/                      # Serviços auxiliares
-│   │   ├── 
-│   │   ├── 
-│   │   └── 
-│   ├── Usuario/                       # Gestão de usuários
-│   │   └── Admin.cpp           
+│   ├── Produto.cpp                    # Implementação única para todos os produtos
+│   ├── Categoria.cpp
+│   ├── Fornecedor.cpp
+│   ├── GerenciadorDeEstoque.cpp       # Lógica centralizada
+│   ├── PersistenciaDeDados.cpp        # Persistência em CSV
+│   ├── MenuInterativo.cpp
+│   ├── Admin.cpp
 │   └── main.cpp                       # Ponto de entrada
-├── .gitignore
-├── tests/                             # Testes unitários
-│   ├── ProdutosTests.cpp
-│   └── ControleTests.cpp
-└── Makefile                           # Sistema de build
+│
+├── tests/                             # Testes atualizados
+│   ├── ProdutoTests.cpp               # Testes para a classe Produto
+│   ├── GerenciadorTests.cpp           # Testes para o GerenciadorDeEstoque
+│   └── ...                        
+│
+└── Makefile                           # Build simplificado
 ```
 
 <a id="aprendizados"></a>
