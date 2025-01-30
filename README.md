@@ -39,37 +39,52 @@ A aplicação utiliza arquivos .txt como banco de dados para armazenar informaç
 O sistema é estruturado em diversas classes, cada uma com responsabilidades específicas para manter a organização e escalabilidade.  
 
 ### 🔹 **1. Produto**  
-Armazena informações sobre os itens do estoque, como nome, quantidade, preço e fornecedor.  
+Armazena informações detalhadas sobre os itens do estoque, incluindo:
+  * Nome, ID único, quantidade disponível, preço unitário.
+  * Categoria do produto (vinculada por ID).
+  * Fornecedor associado (referência ao fornecedor do item).
 
-### 🔹 **2. Estoque**  
-Gerencia a lista de produtos armazenados, permitindo a adição, remoção e verificação de disponibilidade.  
-
+### 🔹 **2. GerenciadorDeEstoque**  
+Responsável por gerenciar todas as operações do estoque:
+  * Adição, edição, exclusão e busca de produtos.
+  * Listagem de produtos por categoria.
+  * Integração com a Persistência de Dados para salvar/recuperar informações.
+    
 ### 🔹 **3. Fornecedor**  
-Representa os fornecedores dos produtos, armadocuments/class-diagram.pngzenando nome, contato e itens fornecidos.  
+Representa os fornecedores dos produtos:
+  * ID único, nome, informações de contato.
+  * Funcionalidade para consultar fornecedores vinculados aos produtos.
 
-### 🔹 **4. Pedido**  
-Registra solicitações de reposição de produtos ao fornecedor. O status do pedido é controlado por um **Enum**, podendo ser:  
-- **PENDENTE** – Pedido criado, aguardando aprovação.  
-- **APROVADO** – Pedido aprovado para processamento.  
-- **EM_ANDAMENTO** – Pedido sendo preparado ou enviado pelo fornecedor.  
-- **ENTREGUE** – Pedido recebido e incorporado ao estoque.  
-- **CANCELADO** – Pedido cancelado e não processado.  
+### 🔹 **5. Categoria**  
+  * ID único para cada categoriga de produto e nome da categoria.
+  * Usada para organizar produtos e filtrar relatórios.
 
-### 🔹 **5. Movimentação de Estoque**  
-Registra todas as operações de entrada e saída de produtos, armazenando informações como data, quantidade e usuário responsável.  
-
-### 🔹 **6. Usuário**  
-Representa os funcionários que gerenciam o estoque, garantindo controle de acesso e segurança.  
-
+### 🔹 **6. Admin**  
+Garante o controle de acesso e segurança do sistema:
+  * Autenticação de usuários via login e senha.
+  * Permissões restritas para operações críticas.
+    
 ### 🔹 **7. Relatório**  
-Gera relatórios sobre os produtos disponíveis, movimentações realizadas e pedidos efetuados.  
+Gera relatórios estratégicos sobre o estoque:
+  * Quantidade total de produtos por categoria.
+  * Valor monetário agregado por categoria (quantidade × preço).
 
+### 🔹 **7. MenuInterativo**  
+Interface de usuário simples no terminal para interação com o sistema:
+  * Exibição de opções (cadastrar produto, gerar relatório, etc.).
+  * Processamento de entradas do usuário.
+  * Integração direta com o GerenciadorDeEstoque e Admin.
+    
 ### 🔹 **8. Persistência de Dados**  
-Responsável pela **leitura e escrita** dos dados em  arquivos `.txt`. Essa classe permite:  
-- **Ler dados** do arquivo.  
-- **Adicionar novas linhas** ao final do arquivo.  
-- **Buscar registros** por palavra-chave.  
-- **Remover ou atualizar registros** de forma eficiente.  
+Gerencia o armazenamento e recuperação de informações:
+  * Salvamento em arquivos CSV (um por categoria, ex: Carnes.csv).
+  * Carregamento de dados para memória.
+  *Estrutura organizada para facilitar buscas e atualizações.
+
+### 🔹 **9. IProduto (Interface)**
+Define métodos obrigatórios para a classe Produto:
+   * getId(), getNome(), getQuantidade(), getPreco(), etc.
+   * Garante consistência no acesso aos dados dos produtos.
 
 ---
 
@@ -83,7 +98,7 @@ Responsável pela **leitura e escrita** dos dados em  arquivos `.txt`. Essa clas
 ✅ Gerenciamento de pedidos de reposição.  
 ✅ Registro de movimentações de entrada e saída de estoque.  
 ✅ Geração de relatórios sobre estoque e movimentações.  
-✅ Persistência de dados em arquivo de texto (`.txt`).  
+✅ Persistência de dados em arquivo de texto (`.csv`).  
 
 ---
 
