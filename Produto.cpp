@@ -1,12 +1,15 @@
 #include <iostream>
 #include <string>
+#include "Fornecedor.hpp"
+#include "Categoria.hpp"
+#include "IProduto.hpp"
 
-class Produto
-{
+class Produto:public IProduto{ 
+
 private:
     int id;
     std::string nome;
-    std::string categoria;
+    Categoria* categoria;
     int quantidade;
     float preco;
     Fornecedor* fornecedor;
@@ -14,7 +17,7 @@ private:
 public:
     int getId() { return id; }
     std::string getNome() { return nome; }
-    std::string getCategoria() { return categoria; }
+    Categoria* getCategoria() { return categoria; }
     int getQuantidade() { return quantidade; }
     float getPreco() { return preco; }
     Fornecedor* getFornecedor() { return fornecedor; }
@@ -27,10 +30,10 @@ public:
     void exibirProduto(){
         std::cout << "ID: "<< id;
         std::cout << "\nNOME: "<< nome;
-        std::cout << "\nQUANTIDADE: "<< quantidade;
-        std::cout << "\nPRECO: R$ "<< preco;
+        std::cout << "\nQUANTIDADE: " << quantidade;
+        std::cout << "\nPRECO: R$ " << preco;
         std::cout << "\nFORNECEDOR: " << fornecedor->getNome();     
-        std::cout << "\nCATEGORIA: "<< categoria<< "\n";
+        std::cout << "\nCATEGORIA: " << categoria->getNome() << "\n";
         std::cout <<"------------------\n";
     }
 
