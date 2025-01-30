@@ -1,22 +1,22 @@
-ID,Nome,Quantidade,Preco, Fornecedor
-15001,"Picanha", 800,69.99
-15002,"Alcatra" , 1200,62.99
-15003,"Patinho",2000,45.00"
-15004,"Cumpim", 1250,40.00"
-15005,"Contrafile", 1000,63.00
-15006,"Coxa",2000,21.00
-15007,"Asa",2500,19.99
-15008,"Peito",1800,15.99
-15009,"Pe de Galinha",1500,11.99
-15010,"Coracao",2000,35.00
-15011,"Lompo",900,29.99
-15012,"Copalombo",800,31.00
-15013,"Pernil",1400,27.00
-15014,"Bacon" 1500,45.99
-15015,"Tilapia",1000,63.00
-15016,"Salmao",900,78.99
-15017,"Tucunare",1200,58.99
-15018,"Bagre",1150,59.99
-15019,"Lambarim" 1700,54.99
-15020,"Sardinha",2000,49.99
+ID,Nome,Quantidade,Preco,Fornecedor
+15001,"Picanha", 800,69.99,JBS
+15002,"Alcatra",1200,62.99,JBS
+15003,"Patinho",2000,45.00,JBS
+15004,"Cumpim",1250,40.00,Marfrig
+15005,"Contrafile,1000,63.00,Marfrig
+15006,"Coxa",2000,21.00,Marfrig
+15007,"Asa",2500,19.99,Marfrig
+15008,"Peito",1800,15.99,Marfrig
+15009,"Pe de Galinha",1500,11.99,Marfrig
+15010,"Coracao",2000,35.00,Marfrig
+15011,"Lompo",900,29.99,Minerva Foods 
+15012,"Copalombo",800,31.00,Minerva Foods 
+15013,"Pernil",1400,27.00, Minerva Foods
+15014,"Bacon" 1500,45.99, Minerva Foods
+15015,"Tilapia",1000,63.00, Minerva Foods
+15016,"Salmao",900,78.99, Minerva Foods
+15017,"Tucunare",1200,58.99, Minerva Foods
+15018,"Bagre",1150,59.99, Minerva Foods
+15019,"Lambarim",1700,54.99, Minerva Foods
+15020,"Sardinha",2000,49.99, Minerva Foods
 
