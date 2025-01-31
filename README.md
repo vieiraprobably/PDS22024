@@ -34,7 +34,7 @@ A aplicação utiliza arquivos .txt como banco de dados para armazenar informaç
 <a id="modelo-conceitual"></a>
 ## 📝 Modelo Conceitual
 
-![Diagrama de Classes](documents/diagrama-de-classes-gerenciador-de-estoque.png) 
+![Diagrama de Classes](documents/diagrama-de-classes-gerenciamento-de-estoque.png) 
 
 O sistema é estruturado em diversas classes, cada uma com responsabilidades específicas para manter a organização e escalabilidade.  
 
