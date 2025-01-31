@@ -1,18 +1,19 @@
-ID, Nome, Quantidade, Preco, Fornecedor
-4001,"Alface",5000, 0.5 unid, Brasil Fartura Comercio Atacadista de Frutas e Legumes Global Ltda 
-4002,"Cebolinha", 5000, 0.8 unid,Brasil Fartura Comercio Atacadista de Frutas e Legumes Global Ltda
-4003,"Salsinha", 5000 , 0.7 unid,Brasil Fartura Comercio Atacadista de Frutas e Legumes Global Ltda
-4004,"Brocólis", 5000, 0.9 unid,Brasil Fartura Comercio Atacadista de Frutas e Legumes Global Ltda
-4005,"Cenoura", 5300,  0.5 unid,Agrivale - Agricultura Do Vale Ltda
-4006,"Repolho", 6200,  0.4 unid,Agrivale - Agricultura Do Vale Ltda
-4007,"Rúcula", 7000,  1.2 unid,Agrivale - Agricultura Do Vale Ltda
-4008,"Batata", 6800,  0.2 unid,Agrivale - Agricultura Do Vale Ltda
-4009,"Jiló",5000,  0.2 unid,Agrodan - Agropecuária Roriz Dantas Ltda
-4010,"Abobora",5900 , 0.2 unid,Agrodan - Agropecuária Roriz Dantas Ltda
-4011,"Espinafre", 10000, 1.2 unid,Agrodan - Agropecuária Roriz Dantas Ltda
-4012,"Acelga", 12400, 1.0 unid, Agrodan - Agropecuária Roriz Dantas Ltda
-4013,"Almeirao", 12550, 1.9 unid,Agrodan - Agropecuária Roriz Dantas Ltda
-4014,"couve-flor", 10600, 1.6 uni ,Agrodan - Agropecuária Roriz Dantas Ltda
-4015,"Alcachofra",14580, 1.4 unid,Agrodan - Agropecuária Roriz Dantas Ltda
-4016,"Aspargo", 13965, 0.6 unid,Agrodan - Agropecuária Roriz Dantas Ltda
-4017,"Mandioca", 900 , 0.85 unid,Agrodan - Agropecuária Roriz Dantas Ltda 
+ID,Nome,Quantidade,Preco,Fornecedor
+40001,"Alface",5000,0.5,Brasil Fartura Comercio Atacadista de Frutas e Legumes Global Ltda 
+40002,"Cebolinha",5000,0.8,Brasil Fartura Comercio Atacadista de Frutas e Legumes Global Ltda
+40003,"Salsinha",5000,0.7,Brasil Fartura Comercio Atacadista de Frutas e Legumes Global Ltda
+40004,"Brocólis",5000,0.9,Brasil Fartura Comercio Atacadista de Frutas e Legumes Global Ltda
+40005,"Cenoura",5300,0.5,Agrivale - Agricultura Do Vale Ltda
+40006,"Repolho",6200,0.4,Agrivale - Agricultura Do Vale Ltda
+40007,"Rúcula",7000,1.2,Agrivale - Agricultura Do Vale Ltda
+40008,"Batata",6800,0.2,Agrivale - Agricultura Do Vale Ltda
+40009,"Jiló",5000,0.2,Agrodan - Agropecuária Roriz Dantas Ltda
+40010,"Abobora",5900,0.2,Agrodan - Agropecuária Roriz Dantas Ltda
+40011,"Espinafre", 10000,1.2,Agrodan - Agropecuária Roriz Dantas Ltda
+40012,"Acelga",12400,1.0,Agrodan - Agropecuária Roriz Dantas Ltda
+40013,"Almeirao",12550,1.9,Agrodan - Agropecuária Roriz Dantas Ltda
+40014,"Couve-flor",10600,1.6,Agrodan - Agropecuária Roriz Dantas Ltda
+40015,"Alcachofra",14580,1.4,Agrodan - Agropecuária Roriz Dantas Ltda
+40016,"Aspargo",13965,0.6,Agrodan - Agropecuária Roriz Dantas Ltda
+40017,"Mandioca",900,0.85,Agrodan - Agropecuária Roriz Dantas Ltda 
+

@@ -64,7 +64,13 @@
     "format": "cpp",
     "iomanip": "cpp",
     "span": "cpp",
-    "variant": "cpp"
+    "variant": "cpp",
+    "list": "cpp",
+    "cstring": "cpp",
+    "map": "cpp",
+    "set": "cpp",
+    "expected": "cpp",
+    "cinttypes": "cpp"
   },
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "g++",

@@ -16,7 +16,7 @@ public:
         cin >> login;
         cout << "Digite sua senha";
         cin >> senha;
-        cout >"Digite uma palavra secreta para recuperacao de senha";
+        cout << "Digite uma palavra secreta para recuperacao de senha";
         cin >> palavraSecreta;
 
         ofstream arq;
@@ -31,7 +31,7 @@ public:
 
     } 
 
-bool Verifica(string& usuario, string& senha){
+bool Verifica(string& usuario, string& senha){};
 
 ifstream arq ("Banco_de_Dados.csv");
 
@@ -56,46 +56,46 @@ void Acesso(){
     cout <, "Digite sua senha: ";
     cin >> senha;
 
-    if(Verifica(login,senha){
+    if(Verifica(login,senha)){
 
         cout << "Login efetuado com sucesso\n";
 
-     } else {
+    } else {
 
             cout << "Usuario ou senha incorretos";
-     }
+    }
     
 
 }
 
-Void Recupera_Senha(login){
+void Recupera_Senha(login){
 
-string s;
-string novaSenha;
-int contador;
+    string s;
+    string novaSenha;
+    int contador;
 
-cout << "Digite sua palavra secreta";
-cin >> s;
+    cout << "Digite sua palavra secreta";
+    cin >> s;
 
-arq.open("Banco_de_Dados.csv");
+    arq.open("Banco_de_Dados.csv");
 
-    while(arq >> palavraSecreta){
+        while(arq >> palavraSecreta){
 
-        if(s == palavraSecreta){
+            if(s == palavraSecreta){
 
-            cout << "Digite sua nova senha";
-            cin >> novaSenha;
+                cout << "Digite sua nova senha";
+                cin >> novaSenha;
 
-        } else {
-            cout << "palavraSecreta incorreta";
-            return;
-        }
+            } else {
+                cout << "palavraSecreta incorreta";
+                return;
+            }
 
-     } 
+        } 
 
-     senha = novaSenha;
+        senha = novaSenha;
     
-}   
+};  
 
 
 int main(){
