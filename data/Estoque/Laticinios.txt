@@ -1,7 +1,0 @@
-Leite_Integral 50 6.00
-Leite_Desnatado 30 5.50
-Manteiga_sem_sal 22 15.50
-Manteiga_com_sal 17 17.50
-Requeijao 80 9.99
-Iogurte 120 5.89
-Queijo 200 32.99
