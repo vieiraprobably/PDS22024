@@ -63,23 +63,3 @@ public:
     }
 };
 
-int main() {
-    // Criando um fornecedor
-    Fornecedor f(1, "Fornecedor A", "1234-5678", 123.45);
-
-    // Cadastrando e atualizando fornecedor
-    f.cadastrarFornecedor(1, "Fornecedor A", "1234-5678", 123.45);
-    f.atualizarFornecedor(1, "Fornecedor A Atualizado", "9876-5432", 543.21);
-
-    // Adicionando produtos
-    f.adicionarProduto("Produto 1", 15.50);
-    f.adicionarProduto("Produto 2", 22.75);
-
-    // Listando produtos
-    f.listarProdutos();
-
-    // Exibindo informações do fornecedor
-    f.exibirFornecedor();
-
-    return 0;
-}
