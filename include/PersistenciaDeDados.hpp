@@ -7,7 +7,7 @@
 #include "Produto.cpp"
 #include "Categoria.hpp"
 #include "Fornecedor.hpp"
-
+#include <iostream>
 class PersistenciaDeDados {
 public:
     void salvarCSV();

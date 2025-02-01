@@ -96,25 +96,4 @@ void Recupera_Senha(login){
         senha = novaSenha;
     
 };  
-
-
-int main(){
-
-Admin func;
-char rpt;
-
-cout << "Vocë ja possui cadastro em nosso sistema? Sim ou Nao?" << endl;
-cin >> rpt;
-
-switch(rpt){
-
-case 's':
-
-
-
-}
-
-
-
-    return 0;
 }
