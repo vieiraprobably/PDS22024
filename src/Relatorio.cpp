@@ -1,118 +1,54 @@
+#include "include/Relatorio.hpp"
+#include "include/PersistenciaDeDados.hpp"
+#include "include/Categoria.hpp"
+
 #include <iostream>
-#include <fstream>
-#include <sstream>
-#include <string>
-#include <vector>
 #include <iomanip>
 
-struct Produto {
-    int id;
-    std::string nome;
-    int quantidade;
-    double preco;
-    std::string fornecedor;
-};
+Relatorio::Relatorio(PersistenciaDeDados& persistencia) : persistencia(persistencia) {}
 
-void lerCSV(const std::string& nomeArquivo, std::vector<Produto>& produtos) {
-    std::ifstream arquivo(nomeArquivo);
-    std::string linha;
-
-    if (!arquivo.is_open()) {
-        std::cerr << "Erro ao abrir o arquivo " << nomeArquivo << std::endl;
-        return;
-    }
-
-    // Ignora a primeira linha (cabeçalho)
-    std::getline(arquivo, linha);
-
-    while (std::getline(arquivo, linha)) {
-        std::stringstream ss(linha);
-        std::string campo;
-        Produto produto;
-
-        std::getline(ss, campo, ',');
-        produto.id = campo.empty() ? 0 : std::stoi(campo);
-
-        if (ss.peek() == '"') {
-            ss.ignore();
-            std::getline(ss, produto.nome, '"');
-            ss.ignore(); // Ignorar a vírgula seguinte
-        } else {
-            std::getline(ss, produto.nome, ',');
-        }
-
-        std::getline(ss, campo, ',');
-        produto.quantidade = campo.empty() ? 0 : std::stoi(campo);
-
-        std::getline(ss, campo, ',');
-        produto.preco = campo.empty() ? 0.0 : std::stod(campo);
-
-        if (ss.peek() == '"') {
-            ss.ignore();
-            std::getline(ss, produto.fornecedor, '"');
-        } else {
-            std::getline(ss, produto.fornecedor, ',');
-        }
-
-        produtos.push_back(produto);
-    }
-
-    arquivo.close();
+void Relatorio::imprimirCabecalho() const {
+    std::cout << "\n— Relatório do Estoque —\n";
+    std::cout << "Categoria       | Quantidade | Valor Total (R$)\n";
+    std::cout << "------------------------------------------------\n";
 }
 
-void gerarRelatorio(const std::string& categoria, const std::vector<Produto>& produtos, int& totalQuantidade, double& totalValor) {
-    int quantidadeTotal = 0;
+void Relatorio::imprimirLinha(const std::string& categoria, int quantidade, double valorTotal) const {
+    std::cout << std::left << std::setw(15) << categoria << " | "
+              << std::right << std::setw(9) << quantidade << " | "
+              << std::setw(12) << std::fixed << std::setprecision(2) << valorTotal << "\n";
+}
+
+void Relatorio::imprimirTotalGeral(int totalProdutos, double valorTotal) const {
+    std::cout << "------------------------------------------------\n";
+    std::cout << "Total Geral:     | "
+              << std::right << std::setw(9) << totalProdutos << " | "
+              << std::setw(12) << valorTotal << "\n";
+    std::cout << "------------------------------------------------\n\n";
+}
+
+void Relatorio::gerarRelatorio() const {
+    int quantidadeTotalGeral = 0;
     double valorTotal = 0.0;
-
-    for (const auto& produto : produtos) {
-        quantidadeTotal += produto.quantidade;
-        valorTotal += produto.quantidade * produto.preco;
+    
+    imprimirCabecalho();
+    
+    for (const auto& categoria : persistencia.getCategorias()) {
+        auto produtos = persistencia.carregarProdutosPorCategoria(categoria);
+        
+        int totalQuantidadeCategoria = 0;
+        double valorTotalCategoria = 0.0;
+        
+        for (const auto& produto : produtos) {
+            totalQuantidadeCategoria += produto.getQuantidade();
+            valorTotalCategoria += produto.getQuantidade() * produto.getPreco();
+        }
+        
+        quantidadeTotalGeral += totalQuantidadeCategoria;
+        valorTotal += valorTotalCategoria;
+        
+        imprimirLinha(categoria, totalQuantidadeCategoria, valorTotalCategoria);
     }
-
-    totalQuantidade += quantidadeTotal;
-    totalValor += valorTotal;
-
-    std::cout << std::left << std::setw(20) << categoria << " | "
-              << std::setw(16) << quantidadeTotal << " | "
-              << std::fixed << std::setprecision(2) << valorTotal << std::endl;
-    std::cout << "----------------------------------------------------------------------" << std::endl;
-}
-
-int main() {
-    std::vector<std::pair<std::string, std::string>> arquivos = {
-        {"\data\estoque\Enlatados.csv", "Enlatados"},
-        {"\data\estoque\Carnes.csv", "Carnes"},
-        {"\data\estoque\Frutas.csv", "Frutas"},
-        {"\data\estoque\GraosECereais.csv", "Grãos e Cereais"},
-        {"\data\estoque\Animais.csv", "Animais"},
-        {"\data\estoque\Bebidas.csv", "Bebidas"},
-        {"\data\estoque\Verduras.csv", "Verduras"},
-        {"\data\estoque\HigienePessoal.csv", "Higiene Pessoal"},
-        {"\data\estoque\Limpeza.csv", "Limpeza"},
-        {"\data\estoque\Padaria.csv", "Padaria"},
-        {"\data\estoque\Massas.csv", "Massas"},
-        {"\data\estoque\Laticinios.csv", "Laticinios"}
-    };
-
-    int totalQuantidadeGeral = 0;
-    double totalValorGeral = 0.0;
-
-    std::cout << "Relatório do Estoque" << std::endl;
-    std::cout << "----------------------------------------------------------------------" << std::endl;
-    std::cout << "Categoria             | Quantidade Total | Valor Total (R$)" << std::endl;
-    std::cout << "----------------------------------------------------------------------" << std::endl;
-
-    for (const auto& arquivo : arquivos) {
-        std::vector<Produto> produtos;
-        lerCSV(arquivo.first, produtos);
-        gerarRelatorio(arquivo.second, produtos, totalQuantidadeGeral, totalValorGeral);
-    }
-
-    std::cout << "\nTotal Geral do Estoque:" << std::endl;
-    std::cout << "----------------------------------------------------------------------" << std::endl;
-    std::cout << "Quantidade Total: " << totalQuantidadeGeral << std::endl;
-    std::cout << "Valor Total (R$): " << std::fixed << std::setprecision(2) << totalValorGeral << std::endl;
-    std::cout << "----------------------------------------------------------------------" << std::endl;
-
-    return 0;
+    
+    imprimirTotalGeral(quantidadeTotalGeral, valorTotal);
 }
