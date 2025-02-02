@@ -1,6 +1,7 @@
-ID,Nome,Quantidade,Preco,FornecedorID
-69001,"Leite",200,5.99,00027
-69002,"Manteiga",100,22.99,00027
-69003,"Requeijao",600,9.00,00028
-69004,"Iogurte",1080,6.00,00029
-69005,"Queijo",900,33.99,00027
+
+ID,Nome,Quantidade,Preco,Fornecedor
+69001,"Leite",200,5.99,Itambé
+69002,"Manteiga",100,22.99,Itambé
+69003,"Requeijao",600,9.00,Italac
+69004,"Iogurte",1080,6.00,Nestle
+69005,"Queijo",900,33.99,Itambé
