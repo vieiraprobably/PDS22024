@@ -1,8 +1,4 @@
 #include "Categoria.hpp"
-#include <iomanip>
-#include "Produto.hpp"
-#include <iostream>
-#include <fstream>
 
 Categoria::Categoria(const std::string& nomeCategoria, int prefixoId, int contadorInicial)
         : nomeCategoria(nomeCategoria), prefixoId(prefixoId), contador(contadorInicial) {}
