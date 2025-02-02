@@ -88,14 +88,13 @@ private:
 
     bool validarCredenciais(const std::string& usuario, const std::string& senha) {
        
-        return (persistencia.check(usuario, senha)); // falta implementar ainda
+        return (persistencia.validarCredenciais(usuario, senha)); 
        
     }
 
     void cadastrarUsuario(const std::string& nome, const std::string& usuario, const std::string& senha, const std::string& palavraSecreta) {
         
-        persistencia.cadastrar(nome, usuario, senha, palavraSecreta);
-        //  Lemrbrar de criar as validações para nome, usuario, senha e palavra secreta 
+        persistencia.cadastrarUsuario(nome, usuario, senha, palavraSecreta); 
         std::cout << "Usuário " << usuario << " cadastrado com sucesso!" << std::endl;
     }
 };

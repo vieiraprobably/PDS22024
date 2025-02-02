@@ -304,3 +304,50 @@ std::vector<Produto> PersistenciaDeDados::carregarProdutos() {
 
     return produtos;
 }
+
+
+bool PersistenciaDeDados::validarCredenciais() {
+
+ std::ifstream arquivo("Admin.csv"); 
+    std::string linha;
+
+    if (!arquivo.is_open()) {
+        std::cerr << "Não foi possível abrir o arquivo!" << std::endl;
+        return false;
+    }
+
+    while (std::getline(arquivo, linha)) {
+        std::stringstream ss(linha);
+        std::string nome, login, senhaArquivo, palavraSecreta;
+
+        std::getline(ss, nome, ',');
+        std::getline(ss, login, ',');
+        std::getline(ss, senhaArquivo, ',');
+        std::getline(ss, palavraSecreta, ',');
+
+        
+        if (login == usuario && senhaArquivo == senha) {
+            arquivo.close();
+            return true;  
+        }
+    }
+
+    arquivo.close();
+    return false;  
+}
+
+
+void PersistenciaDeDados::cadastrarUsuario(const std::string& nome, const std::string& usuario, const std::string& senha, const std::string& palavraSecreta) {
+    std::ofstream arquivo("./data/Admin.csv", std::ios::app);  
+
+    if (!arquivo.is_open()) {
+        std::cerr << "Não foi possível abrir o arquivo para cadastro!" << std::endl;
+        return;
+    }
+
+   
+    arquivo << nome << "," << usuario << "," << senha << "," << palavraSecreta << "\n";
+
+    arquivo.close();
+    std::cout << "Usuário cadastrado com sucesso!" << std::endl;
+}
