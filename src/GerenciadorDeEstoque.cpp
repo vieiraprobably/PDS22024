@@ -2,6 +2,7 @@
 #include <vector>
 #include <string>
 #include "..include/PersistenciaDeDados.hpp"
+
 class GerenciadorDeEstoque {
 private:
     std::vector<Produto> produtos;
