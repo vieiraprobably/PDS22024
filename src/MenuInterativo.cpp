@@ -3,7 +3,6 @@
 #include "PersistenciaDeDados.cpp"
 
 
-
 class MenuInterativo {
   private:
     PersistenciaDeDados& persistencia;

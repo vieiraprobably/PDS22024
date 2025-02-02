@@ -1,4 +1,4 @@
-#include "Categoria.hpp"
+#include "Categoria.cpp"
 
 Categoria::Categoria(const std::string& nome, const std::string& prefixo, int contadorInicial)
     : nome(nome), prefixo(prefixo), contador(contadorInicial) {}
