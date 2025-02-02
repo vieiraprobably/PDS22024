@@ -1,0 +1,43 @@
+FornecedorID,Nome do fornecedor,Contato,Endereco
+00001,Animalia,(11) 91234-5678,Rua dos Animais 123 - Vila Progresso - São Paulo/SP
+00002,PetShop,(11) 92345-6789,Avenida dos Pets 456 - Centro Rio de - Janeiro/RJ
+00003,PetStore,(21) 93456-7890,Rua das Rações 789 - Jardim América - Belo Horizonte/MG
+00004,Crystal,(11) 94567-8901,Avenida das Indústrias 101 - Barra Funda - São Paulo/SP
+00005,Coca-Cola,(21) 95678-9012,Rodovia BR-101 KM 45 - Santa Felicidade - Curitiba/PR
+00006,Del Valle,(31) 96789-0123,Rua das Bebidas 250 - São João Porto - Alegre/RS
+00007,Ambev,(41) 97890-1234,Avenida das Fontes 333 - Pituba Salvador/BA
+00008,Pepsico,(71) 98901-2345,Rua dos Sucos 505 - Praia de Iracema - Fortaleza/CE
+00009,Marfrig,(51) 99012-3456,Rodovia do Frigorífico KM 88 - Goiânia/GO
+00010,JBS,(61) 90123-4567,Avenida do Gado 700 - Setor Industrial - Brasília/DF
+00011,Minerva Foods,(65) 91234-5678,Rua da Carne 890 - Jardim Cuiabá - Cuiabá/MT
+00012,Zeca Conservas,(81) 92345-6789,Rua das Conservas 102 - Pina - Recife/PE
+00013,Tomate Ltda,(85) 93456-7890,Rua do Tomate 303 - Alecrim - Natal/RN
+00014,Enlatados Ltda,(98) 94567-8901,Rodovia BR-316 KM 150 - Bairro de Fátima - São Luís/MA
+00015,Elefante,(62) 95678-9012,Avenida do Molho 220 - Setor Central - Goiânia/GO
+00016,Las Azeitonas,(67) 96789-0123,Rua das Azeitonas 88 - Centro Campo - Grande/MS
+00017,Vale Fertil,(27) 97890-1234,Avenida da Agricultura 777 - Jardim da Penha - Vitória/ES
+00018,Frutas do Campo,(32) 98901-2345,Rua dos Hortifrútis 555 - São Mateus - Juiz de Fora/MG
+00019,Frutas do Sol,(79) 99012-3456,Rodovia BR-235 KM 25 - Bairro América - Aracaju/SE
+00020,Citricultura S.A.,(88) 90123-4567,Avenida das Feiras 909 - Centro - Sobral/CE
+00021,Camil,(82) 91234-5678,Rua do Arroz 121 - Farol - Maceió/AL
+00022,Carrijo,(83) 92345-6789,Avenida dos Cereais 222 - Centro - João Pessoa/PB
+00023,Yoki,(47) 93456-7890,Rua dos Temperos 333 - Bela Vista - Blumenau/SC
+00024,Neve,(45) 94567-8901,Rodovia BR-277 KM 18 - Jardim Iguaçu - Foz do Iguaçu/PR
+00025,Dove,(11) 95678-9012,Avenida da Beleza 444 - Mooca - São Paulo/SP
+00026,Colgate,(21) 96789-0123,Rua do Sorriso 555 - Lapa - Rio de Janeiro/RJ
+00027,Itambé,(31) 97890-1234,Rua dos Laticínios 666 - Santa Tereza - Belo Horizonte/MG
+00028,Nestlé,(19) 98901-2345,Rodovia Anhanguera KM 99 - Campinas/SP
+00029,Italac,(51) 99012-3456,Avenida do Leite 777 - Petrópolis - Porto Alegre/RS
+00030,INDUPROL,(91) 90123-4567,Rua das Embalagens 888 - Bairro do Marco - Belém/PA
+00031,Cleanner,(92) 91234-5678,Avenida da Limpeza 999 - Alvorada - Manaus/AM
+00032,RADAN,(95) 92345-6789,Rua da Higiene 111 - Centro - Boa Vista/RR
+00033,Galo,(84) 93456-7890,Rodovia BR-304 KM 15 - Nova Betânia - Mossoró/RN
+00034,Padaria do Zeca,(13) 94567-8901,Rua do Pão 202 - Gonzaga - Santos/SP
+00035,Delícias da Serra,(27) 95678-9012,Rua das Quitandas 303 - Serra - Vitória/ES
+00036,Delícias do Cipó,(31) 96789-0123,Rodovia MG-010 KM 70 - Serra do Cipó - Serra do Cipó/MG
+00037,Padaria Integral Ltda,(48) 97890-1234,Avenida dos Grãos 404 - Lagoa da Conceição - Florianópolis/SC
+00038,Padaria Real,(43) 98901-2345,Rua do Trigo 505 - Centro - Londrina/PR
+00039,Forneria,(14) 99012-3456,Rua dos Fornos 606 - Jardim Paulista - Bauru/SP
+00040,Brasil Fartura Atacadista,(16) 90123-4567,Avenida das Hortaliças 707 - Centro Ribeirão - Preto/SP
+00041,Agrivale - Agricultura do Vale Ltda,(35) 91234-5678,Rua das Colheitas 808 - Distrito Industrial - Poços de Caldas/MG
+00042,Agrodan - Agropecuária Roriz Dantas Ltda,(98) 92345-6789,Rodovia MA-006 KM 12 - Santa Inês - Imperatriz/MA

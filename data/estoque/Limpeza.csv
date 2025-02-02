@@ -1,13 +1,13 @@
-ID,Nome,Quantidade,Preco,Fornecedor
-35001,"Detergente",10,5.00,INDUPROL
-35002,"Sabão em Pó",45,15.50,Cleanner
-35003,"Desinfetante",30,25.00,RADAN
-35004,"Água Sanitária",27,100.00,RADAN
-35005,"Esponja de Aço",78,35.00,Cleanner
-35006,"Desengordurante",120,25.65,INDUPROL
-35007,"Lustra Móveis",90,10.00,Cleanner
-35008,"Limpa Vidros",50,50.00,Cleanner
-35009,"Limpa Carpete",60,5.00,INDUPROL
-35010,"Limpa Banheiro",40,100.00,RADAN
-35011,"Limpa Cozinha",70,20.00,INDUPROL
-35012,"Limpa Tudo",30,60.00,Cleanner
+ID,Nome,Quantidade,Preco,FornecedorID
+35001,"Detergente",10,5.00,00030
+35002,"Sabão em Pó",45,15.50,00031
+35003,"Desinfetante",30,25.00,00032
+35004,"Água Sanitária",27,100.00,00032
+35005,"Esponja de Aço",78,35.00,00031
+35006,"Desengordurante",120,25.65,00030
+35007,"Lustra Móveis",90,10.00,00031
+35008,"Limpa Vidros",50,50.00,00031
+35009,"Limpa Carpete",60,5.00,00030
+35010,"Limpa Banheiro",40,100.00,00032
+35011,"Limpa Cozinha",70,20.00,00030
+35012,"Limpa Tudo",30,60.00,00031

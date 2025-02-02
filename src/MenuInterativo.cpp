@@ -95,7 +95,7 @@ private:
 
     void cadastrarUsuario(const std::string& nome, const std::string& usuario, const std::string& senha, const std::string& palavraSecreta) {
         
-        persistencia.cadastrar(nome, usuario, senha, palavraSecreta)
+        persistencia.cadastrar(nome, usuario, senha, palavraSecreta);
         //  Lemrbrar de criar as validações para nome, usuario, senha e palavra secreta 
         std::cout << "Usuário " << usuario << " cadastrado com sucesso!" << std::endl;
     }

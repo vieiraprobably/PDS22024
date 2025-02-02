@@ -1,9 +1,9 @@
-ID,Nome,Quantidade,Preco,Fornecedor
-75000,"Maçã",300,6.99,Frutas do Campo
-75001,"Banana",500,3.50,Frutas do Sol
-75002,"Laranja",400,4.99,Citricultura S.A.
-75003,"Morango",200,12.00,Frutas do Campo
-75004,"Abacaxi",150,8.50,Frutas do Sol
-75005,"Mamão",250,5.99,Citricultura S.A.
-75006,"Uva",180,9.00,Frutas do Campo
-75007,"Melancia",100,15.00,Frutas do Sol
+ID,Nome,Quantidade,Preco,FornecedorID
+5000,"Maçã",300,6.99,00018
+75001,"Banana",500,3.50,00019
+75002,"Laranja",400,4.99,00020
+75003,"Morango",200,12.00,00018
+75004,"Abacaxi",150,8.50,00019
+75005,"Mamão",250,5.99,00020
+75006,"Uva",180,9.00,00018
+75007,"Melancia",100,15.00,00019

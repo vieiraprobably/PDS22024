@@ -1,11 +1,11 @@
-ID,Nome,Quantidade,Preco,Fornecedor
-60001,"Pão Francês",500,0.80,"Padaria do Zeca"
-60002,"Croissant",1200,2.50,"Padaria do zeca"
-60003,"Bolo de Chocolate",90,15.00,"Delicias da Serra"
-60004,"Torta de Maçã",70,12.00,"Delicias do cipo"
-60005,"Pão Integral",400,1.50,"Padaria Integral Ltda"
-60006,"Baguete",300,1.80,"Padaria Real"
-60007,"Pão de Queijo",500,3.00,"Forneria"
-60008,"Broa de Milho",150,2.20,"Padaria Real"
-60009,"Pão de Forma",400,4.50,"Padaria do Zeca"
-60010,"Donuts",800,3.50,"Padaria do Zeca"
+ID,Nome,Quantidade,Preco,FornecedorID
+60001,"Pão Francês",500,0.80,00034
+60002,"Croissant",1200,2.50,00034
+60003,"Bolo de Chocolate",90,15.00,00035
+60004,"Torta de Maçã",70,12.00,00036
+60005,"Pão Integral",400,1.50,00037
+60006,"Baguete",300,1.80,00038
+60007,"Pão de Queijo",500,3.00,00039
+60008,"Broa de Milho",150,2.20,00038
+60009,"Pão de Forma",400,4.50,00034
+60010,"Donuts",800,3.50,00034

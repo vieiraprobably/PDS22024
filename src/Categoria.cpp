@@ -1,14 +1,19 @@
-#include "Categoria.cpp"
+#include "Categoria.hpp"
+#include <iomanip>
+#include "Produto.hpp"
+#include <iostream>
+#include <fstream>
 
-Categoria::Categoria(const std::string& nome, const std::string& prefixo, int contadorInicial)
-    : nome(nome), prefixo(prefixo), contador(contadorInicial) {}
+Categoria::Categoria(const std::string& nomeCategoria, int prefixoId, int contadorInicial)
+        : nomeCategoria(nomeCategoria), prefixoId(prefixoId), contador(contadorInicial) {}
 
-std::string Categoria::getNomeDaCategoria() const {
-    return nome;
+
+std::string Categoria::getNome() const {
+    return nomeCategoria;
 }
 
-std::string Categoria::getPrefixoId() const {
-    return prefixo;
+int Categoria::getPrefixoId() const {
+    return prefixoId;
 }
 
 int Categoria::getContador() const {
@@ -19,23 +24,25 @@ void Categoria::setContador(int novoContador) {
     contador = novoContador;
 }
 
-std::string Categoria::gerarProximoID() {
-    std::stringstream ss;
-    ss << std::setw(3) << std::setfill('0') << contador; 
-    return prefixo + ss.str(); 
+
+int Categoria::gerarProximoID() {
+    return prefixoId * 1000 + contador++;  
 }
 
 void Categoria::atualizarContador(const std::vector<std::string>& idsExistentes) {
-    int maxContador = 0;
-    for (const std::string& id : idsExistentes) {
-        if (id.substr(0, prefixo.length()) != prefixo) continue;
-        std::string parteNumerica = id.substr(prefixo.length());
-        try {
-            int contadorAtual = std::stoi(parteNumerica);
-            if (contadorAtual > maxContador) maxContador = contadorAtual;
-        } catch (...) {
-            // Ignora IDs inválidos
+        int maxContador = contador;
+        for (const std::string& id : idsExistentes) {
+            if (std::stoi(id.substr(0, 2)) != prefixoId) continue;
+            std::string parteNumerica = id.substr(2);  
+            try {
+                int contadorAtual = std::stoi(parteNumerica); 
+                if (contadorAtual >= maxContador) {
+                    maxContador = contadorAtual + 1;  
+                }
+            } catch (...) {
+                // Ignora IDs inválidos
+            }
         }
-    }
-    contador = maxContador + 1;
+        contador = maxContador; 
 }
+

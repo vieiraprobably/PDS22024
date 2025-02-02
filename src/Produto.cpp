@@ -1,18 +1,12 @@
-#include <iostream>
-#include <string>
 #include "../include/Produto.hpp"
-#include "../include/Fornecedor.hpp"
-#include "../include/Categoria.hpp"
-#include "../include/IProduto.hpp"
+#include <iostream>
 
+Produto::Produto() : id(0), nome(""), categoria(nullptr), quantidade(0), preco(0.0), fornecedor(nullptr) {}
 
-Produto::Produto()
-{
-}
+Produto::Produto(const int id, std::string& nome, Categoria* categoria, int quantidade, float preco, Fornecedor* fornecedor)
+    : id(id), nome(nome), categoria(categoria), quantidade(quantidade), preco(preco), fornecedor(fornecedor) {}
 
-Produto::~Produto()
-{
-}
+Produto::~Produto() {}
 
 int Produto::getId() const {
     return id;
@@ -67,8 +61,7 @@ void Produto::exibirProduto() const {
     std::cout << "NOME: " << nome << "\n";
     std::cout << "QUANTIDADE: " << quantidade << "\n";
     std::cout << "PREÇO: R$ " << preco << "\n";
-    std::cout << "\nFORNECEDOR: " << fornecedor-> getNomeDoFornecedor();     
-    std::cout << "\nCATEGORIA: " << categoria-> getNomeDaCategoria() << "\n";
+    std::cout << "\nFORNECEDOR: " << fornecedor-> getNome();     
+    std::cout << "\nCATEGORIA: " << categoria-> getNome() << "\n";
     std::cout <<"------------------\n";
 }
-
