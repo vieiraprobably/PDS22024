@@ -351,3 +351,73 @@ void PersistenciaDeDados::cadastrarUsuario(const std::string& nome, const std::s
     arquivo.close();
     std::cout << "Usuário cadastrado com sucesso!" << std::endl;
 }
+
+
+std::vector<std::string> PersistenciaDeDados::getCategorias() {
+    std::ifstream arquivo("Categorias.csv");
+    std::string linha;
+    std::vector<std::string> categorias;
+
+    if (!arquivo.is_open()) {
+        std::cerr << "Não foi possível abrir o arquivo Categorias.csv!" << std::endl;
+        return categorias;  
+    }
+
+
+    std::getline(arquivo, linha);
+
+
+    while (std::getline(arquivo, linha)) {
+        std::stringstream ss(linha);
+        std::string nomeCategoria, prefixoId, contador;
+
+
+        std::getline(ss, nomeCategoria, ',');
+        std::getline(ss, prefixoId, ',');
+        std::getline(ss, contador, ',');
+
+       
+        categorias.push_back(nomeCategoria);
+    }
+
+    arquivo.close();
+    return categorias;
+}
+
+
+std::vector<Produto> PersistenciaDeDados::listarProdutosPorCategoria(const std::string& categoriaBusca) {
+    std::vector<Produto> produtosNaCategoria;
+
+    for (const auto& [categoria, arquivo] : arquivosCSV) {
+        if (categoria == categoriaBusca) {
+            std::ifstream arquivoEntrada(arquivo);
+            if (!arquivoEntrada.is_open()) {
+                std::cerr << "Erro ao abrir o arquivo " << arquivo << std::endl;
+                continue;
+            }
+
+            std::string linha;
+            while (std::getline(arquivoEntrada, linha)) {
+                std::stringstream ss(linha);
+                std::string idStr, nome, quantidadeStr, precoStr, fornecedor;
+                int id, quantidade;
+                double preco;
+
+                std::getline(ss, idStr, ',');
+                std::getline(ss, nome, ',');
+                std::getline(ss, quantidadeStr, ',');
+                std::getline(ss, precoStr, ',');
+                std::getline(ss, fornecedor, ',');
+
+                id = std::stoi(idStr);
+                quantidade = std::stoi(quantidadeStr);
+                preco = std::stod(precoStr);
+
+                Produto produto(id, nome, quantidade, preco, fornecedor);
+                produtosNaCategoria.push_back(produto);
+            }
+        }
+    }
+
+    return produtosNaCategoria;
+}

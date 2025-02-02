@@ -34,7 +34,7 @@ void Relatorio::gerarRelatorio() const {
     imprimirCabecalho();
     
     for (const auto& categoria : persistencia.getCategorias()) {
-        auto produtos = persistencia.carregarProdutosPorCategoria(categoria);
+        auto produtos = persistencia.listarProdutosPorCategoria(categoria);
         
         int totalQuantidadeCategoria = 0;
         double valorTotalCategoria = 0.0;

@@ -82,6 +82,7 @@ private:
         std::cout << "[4] Adicionar novos produtos\n";
         std::cout << "[5] Editar produto\n";
         std::cout << "[6] Remover produto\n";
+        std::cout << "[6] Gerar Relatório\n";
         std::cout << "[7] Sair\n";
         std::cout << "[Escolha]: ";
     }
