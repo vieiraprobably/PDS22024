@@ -4,19 +4,24 @@
 
 #include <vector>
 #include <string>
+#include <map>
+#include <tuple>
 #include <iostream>
-#include "../include/MenuInterativo.hpp"
 
 class PersistenciaDeDados {
+private:
+    std::map<std::string, std::string> arquivosCSV;
+
+    void salvarArquivo(const std::string& arquivo, const std::vector<std::tuple<int, std::string, int, double, std::string>>& dados);
+
+    std::vector<std::tuple<int, std::string, int, double, std::string>> carregarArquivo(const std::string& arquivo);
+
 public:
-    PersistenciaDeDados(const std::string& caminhoArquivo);
-    void adicionarProduto(const std::string& linha);
-    std::string buscarProduto(const std::string& palavra);
-    void apagarProduto(const std::string& palavra);
+    PersistenciaDeDados();
 
+    void salvarDados();
 
+    void carregarDados();
 };
-
-
 
 #endif
