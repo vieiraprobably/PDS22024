@@ -18,9 +18,11 @@ private:
 
 public:
     PersistenciaDeDados();
-
-    void salvarDados();
-
+    void salvarDados(const Produto& produto);
+    Produto buscarProduto(const std::string& nomeProduto);
+    void apagarProdutoPorId(int id);
+    void apagarProdutoPorNome(const std::string& nomeProduto);
+    std::string listarProdutosPorCategoria(const std::string& categoriaBusca);
     void carregarDados();
 };
 

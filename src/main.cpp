@@ -5,7 +5,7 @@
 
 
   int main() {
-    PersistenciaDeDados persistencia("../data/estoque/Animais.csv");
+    PersistenciaDeDados persistencia;
     GerenciadorDeEstoque gerenciador(persistencia);
     MenuInterativo menu(gerenciador);
     menu.init();

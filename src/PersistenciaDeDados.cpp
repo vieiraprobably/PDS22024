@@ -20,15 +20,17 @@ PersistenciaDeDados::PersistenciaDeDados() {
     };
 }
 
-void PersistenciaDeDados::salvarDados() {
+void PersistenciaDeDados::salvarDados(const Produto& produto) {
     for (const auto& [categoria, arquivo] : arquivosCSV) {
-        
-        std::vector<std::tuple<int, std::string, int, double, std::string>> dados = {
-            {40001, "Alface", 5000, 0.5, "Brasil Fartura Comercio Atacadista de Frutas e Legumes Global Ltda"}
-        };
-        salvarArquivo(arquivo, dados); 
+        if (produto.getCategoria() == categoria) {
+            std::vector<std::tuple<int, std::string, int, double, std::string>> dados = {
+                {produto.getId(), produto.getNome(), produto.getQuantidade(), produto.getPreco(), produto.getFornecedor()}
+            };
+            salvarArquivo(arquivo, dados); // Salva no arquivo correspondente
+        }
     }
 }
+
 
 void PersistenciaDeDados::carregarDados() {
     for (const auto& [categoria, arquivo] : arquivosCSV) {
@@ -41,12 +43,12 @@ void PersistenciaDeDados::carregarDados() {
 }
 
 void PersistenciaDeDados::salvarArquivo(const std::string& arquivo, const std::vector<std::tuple<int, std::string, int, double, std::string>>& dados) {
-    std::ofstream arquivoSaida(arquivo);
+    std::ofstream arquivoSaida(arquivo, std::ios::app);
     if (arquivoSaida.is_open()) {
         for (const auto& [id, nome, quantidade, preco, fornecedor] : dados) {
             arquivoSaida << id << "," << nome << "," << quantidade << "," << std::fixed << std::setprecision(2) << preco << "," << fornecedor << "\n";
         }
-        arquivoSaida.close(); // Fecha o arquivo após a escrita
+        arquivoSaida.close(); 
     } else {
         std::cerr << "Erro ao abrir o arquivo " << arquivo << " para escrita." << std::endl;
     }
@@ -72,11 +74,233 @@ std::vector<std::tuple<int, std::string, int, double, std::string>> Persistencia
             if (std::getline(ss, campo)) fornecedor = campo;
             dados.emplace_back(id, nome, quantidade, preco, fornecedor);
         }
-        arquivoEntrada.close(); // Fecha o arquivo após a leitura
+        arquivoEntrada.close(); 
     } else {
    
         std::cerr << "Erro ao abrir o arquivo " << arquivo << " para leitura." << std::endl;
     }
 
     return dados; 
+}
+
+Produto PersistenciaDeDados::buscarProduto(const std::string& nomeProduto) {
+    for (const auto& [categoria, arquivo] : arquivosCSV) {
+        std::ifstream arquivoEntrada(arquivo);
+        if (!arquivoEntrada.is_open()) {
+            std::cerr << "Erro ao abrir o arquivo " << arquivo << std::endl;
+            continue;
+        }
+
+        std::string linha;
+        while (std::getline(arquivoEntrada, linha)) {
+            std::stringstream ss(linha);
+            std::string idStr, nome, quantidadeStr, precoStr, fornecedor;
+            int id, quantidade;
+            double preco;
+
+            std::getline(ss, idStr, ',');
+            std::getline(ss, nome, ',');
+            std::getline(ss, quantidadeStr, ',');
+            std::getline(ss, precoStr, ',');
+            std::getline(ss, fornecedor, ',');
+
+            id = std::stoi(idStr);
+            quantidade = std::stoi(quantidadeStr);
+            preco = std::stod(precoStr);
+
+           
+            if (nome == nomeProduto) {
+                return Produto(id, nome, quantidade, preco, fornecedor, categoria);
+            }
+        }
+    }
+
+    throw std::runtime_error("Produto não encontrado");
+}
+
+
+void PersistenciaDeDados::apagarProdutoPorId(int id) {
+    for (auto& [categoria, arquivo] : arquivosCSV) {
+        std::ifstream arquivoEntrada(arquivo);
+        if (!arquivoEntrada.is_open()) {
+            std::cerr << "Erro ao abrir o arquivo " << arquivo << std::endl;
+            continue;
+        }
+
+        std::vector<std::string> linhas;
+        std::string linha;
+        bool produtoEncontrado = false;
+
+        
+        while (std::getline(arquivoEntrada, linha)) {
+            std::stringstream ss(linha);
+            std::string idStr, nome, quantidadeStr, precoStr, fornecedor;
+            int idProduto;
+
+    
+            std::getline(ss, idStr, ',');
+            std::getline(ss, nome, ',');
+            std::getline(ss, quantidadeStr, ',');
+            std::getline(ss, precoStr, ',');
+            std::getline(ss, fornecedor, ',');
+
+            idProduto = std::stoi(idStr);
+            if (idProduto == id) {
+                produtoEncontrado = true;
+                continue;  
+            }
+
+            linhas.push_back(linha);
+        }
+
+        if (produtoEncontrado) {
+            std::ofstream arquivoSaida(arquivo);
+            for (const auto& linha : linhas) {
+                arquivoSaida << linha << "\n";
+            }
+        }
+    }
+}
+
+
+void PersistenciaDeDados::apagarProdutoPorNome(const std::string& nomeProduto) {
+    for (auto& [categoria, arquivo] : arquivosCSV) {
+        std::ifstream arquivoEntrada(arquivo);
+        if (!arquivoEntrada.is_open()) {
+            std::cerr << "Erro ao abrir o arquivo " << arquivo << std::endl;
+            continue;
+        }
+
+        std::vector<std::string> linhas;
+        std::string linha;
+        bool produtoEncontrado = false;
+
+    
+        while (std::getline(arquivoEntrada, linha)) {
+            std::stringstream ss(linha);
+            std::string idStr, nome, quantidadeStr, precoStr, fornecedor;
+            int idProduto;
+
+          
+            std::getline(ss, idStr, ',');
+            std::getline(ss, nome, ',');
+            std::getline(ss, quantidadeStr, ',');
+            std::getline(ss, precoStr, ',');
+            std::getline(ss, fornecedor, ',');
+
+            idProduto = std::stoi(idStr);
+
+           
+            if (nome == nomeProduto) {
+                produtoEncontrado = true;
+                continue;  
+            }
+
+            
+            linhas.push_back(linha);
+        }
+
+        if (produtoEncontrado) {
+            std::ofstream arquivoSaida(arquivo);
+            for (const auto& linha : linhas) {
+                arquivoSaida << linha << "\n";
+            }
+        }
+    }
+}
+
+
+std::string PersistenciaDeDados::listarProdutosPorCategoria(const std::string& categoriaBusca) {
+    std::stringstream tabela;
+    bool categoriaEncontrada = false;
+
+    
+    tabela << std::left << std::setw(10) << "ID" 
+           << std::setw(20) << "Nome" 
+           << std::setw(12) << "Quantidade" 
+           << std::setw(10) << "Preço" 
+           << std::setw(30) << "Fornecedor" 
+           << "\n";
+    tabela << std::string(82, '-') << "\n";  
+
+    
+    for (const auto& [categoria, arquivo] : arquivosCSV) {
+        if (categoria == categoriaBusca) {
+            categoriaEncontrada = true;
+            std::ifstream arquivoEntrada(arquivo);
+            if (!arquivoEntrada.is_open()) {
+                std::cerr << "Erro ao abrir o arquivo " << arquivo << std::endl;
+                continue;
+            }
+
+            std::string linha;
+            while (std::getline(arquivoEntrada, linha)) {
+                std::stringstream ss(linha);
+                std::string idStr, nome, quantidadeStr, precoStr, fornecedor;
+                int id, quantidade;
+                double preco;
+
+                std::getline(ss, idStr, ',');
+                std::getline(ss, nome, ',');
+                std::getline(ss, quantidadeStr, ',');
+                std::getline(ss, precoStr, ',');
+                std::getline(ss, fornecedor, ',');
+
+                id = std::stoi(idStr);
+                quantidade = std::stoi(quantidadeStr);
+                preco = std::stod(precoStr);
+
+                tabela << std::left << std::setw(10) << id
+                       << std::setw(20) << nome
+                       << std::setw(12) << quantidade
+                       << std::setw(10) << std::fixed << std::setprecision(2) << preco
+                       << std::setw(30) << fornecedor
+                       << "\n";
+            }
+        }
+    }
+
+    if (!categoriaEncontrada) {
+        return "Categoria não encontrada.\n";
+    }
+
+    return tabela.str();
+}
+
+
+
+std::vector<Produto> PersistenciaDeDados::carregarProdutos() {
+    std::vector<Produto> produtos;
+
+    for (const auto& [categoria, arquivo] : arquivosCSV) {
+        std::ifstream arquivoEntrada(arquivo);
+        if (!arquivoEntrada.is_open()) {
+            std::cerr << "Erro ao abrir o arquivo " << arquivo << std::endl;
+            continue;
+        }
+
+        std::string linha;
+        while (std::getline(arquivoEntrada, linha)) {
+            std::stringstream ss(linha);
+            std::string idStr, nome, quantidadeStr, precoStr, fornecedor;
+            int id, quantidade;
+            double preco;
+
+            
+            std::getline(ss, idStr, ',');
+            std::getline(ss, nome, ',');
+            std::getline(ss, quantidadeStr, ',');
+            std::getline(ss, precoStr, ',');
+            std::getline(ss, fornecedor, ',');
+
+            id = std::stoi(idStr);
+            quantidade = std::stoi(quantidadeStr);
+            preco = std::stod(precoStr);
+
+            Produto produto(id, nome, quantidade, preco, fornecedor);
+            produtos.push_back(produto);
+        }
+    }
+
+    return produtos;
 }

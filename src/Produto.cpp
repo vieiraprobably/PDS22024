@@ -17,7 +17,7 @@ std::string Produto::getNome() const {
 }
 
 Categoria* Produto::getCategoria() const {
-    return categoria;
+    return categoria.nome;
 }
 
 int Produto::getQuantidade() const {
