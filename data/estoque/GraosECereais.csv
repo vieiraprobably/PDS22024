@@ -1,7 +1,7 @@
-ID,Nome,Quantidade,Preco,Fornecedor
-68001,"Arroz",200,25.99,Camil
-68002,"Feijao",100,8.99,Camil
-68003,"Chia",500,19.00,Camil
-68004,"Linhaça",80,16.00,Carrijo
-68005,"Aveia",200,13.99,Yoki
-68006,"Milho",500,6.99,Yoki
+ID,Nome,Quantidade,Preco,FornecedorID
+68001,"Arroz",200,25.99,00021
+68002,"Feijao",100,8.99,00021
+68003,"Chia",500,19.00,00021
+68004,"Linhaça",80,16.00,00022
+68005,"Aveia",200,13.99,00023
+68006,"Milho",500,6.99,00023

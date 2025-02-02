@@ -4,62 +4,94 @@
 
 using namespace std;
 
-class Produto {
-public:
-    string nome;
-    float preco;
+#include "../include/Fornecedor.hpp"
 
-    Produto(string n, float p) : nome(n), preco(p) {}
-};
+// Construtor
+ Fornecedor::Fornecedor(int id, const std::string& n, const std::string& c, const std::string& e)
+        : fornecedorId(id), nome(n), contato(c), endereco(e) {}
 
-class Fornecedor {
-private:
-    int id;
-    string nome;
-    string contato;
-    float endereco;
-    list<Produto> produtos;
 
-public:
-    // Construtor
-    Fornecedor(int i, string n, string c, float e) : id(i), nome(n), contato(c), endereco(e) {}
+// Destrutor
+Fornecedor::~Fornecedor() {}
 
-    // Função para cadastrar fornecedor
-    void cadastrarFornecedor(int i, string n, string c, float e) {
-        id = i;
-        nome = n;
-        contato = c;
-        endereco = e;
-    }
+// Getters
+int Fornecedor::getId() const {
+    return fornecedorId;
+}
 
-    // Função para atualizar fornecedor
-    void atualizarFornecedor(int i, string n, string c, float e) {
-        id = i;
-        nome = n;
-        contato = c;
-        endereco = e;
-    }
+string Fornecedor::getNome() const {
+    return nome;
+}
 
-    // Função para adicionar produto ao fornecedor
-    void adicionarProduto(string nomeProduto, float precoProduto) {
-        Produto p(nomeProduto, precoProduto);
-        produtos.push_back(p);
-    }
+string Fornecedor::getContato() const {
+    return contato;
+}
 
-    // Função para listar os produtos
-    void listarProdutos() {
-        cout << "Produtos do Fornecedor " << nome << " (" << id << "):" << endl;
-        for (auto& p : produtos) {
-            cout << "Nome: " << p.nome << " - Preço: " << p.preco << endl;
-        }
-    }
+string Fornecedor::getEndereco() const {
+    return endereco;
+}
 
-    // Função para exibir as informações do fornecedor
-    void exibirFornecedor() {
-        cout << "ID: " << id << endl;
-        cout << "Nome: " << nome << endl;
-        cout << "Contato: " << contato << endl;
-        cout << "Endereço: " << endereco << endl;
-    }
-};
+vector<Produto*> Fornecedor::getProdutos() const {
+    return produtos;
+}
+
+vector<int> Fornecedor::getCategoriasAssociadas() const {
+    return categoriasAssociadas;
+}
+
+// Setters
+
+void Fornecedor::setId(int i) {
+    fornecedorId = i;
+}
+
+void Fornecedor::setNome(string n) {
+    nome = n;
+}
+
+void Fornecedor::setContato(string c) {
+    contato = c;
+}
+
+void Fornecedor::setEndereco(float e) {
+    endereco = e;
+}
+
+void Fornecedor::setProdutos(vector<Produto*> p) {
+    produtos = p;
+}
+
+// Função para adicionar fornecedor
+void Fornecedor::adicionarFornecedor(int i, string n, string c, float e) {
+    fornecedorId = i;
+    nome = n;
+    contato = c;
+    endereco = e;
+}
+
+// Função para atualizar fornecedor
+void Fornecedor::atualizarFornecedor(int i, string n, string c, float e) {
+    fornecedorId = i;
+    nome = n;
+    contato = c;
+    endereco = e;
+}
+
+// Função para listar fornecedores
+void Fornecedor::listarFornecedores() {
+    
+}
+
+// Função para listar produtos por fornecedor
+void Fornecedor::listarProdutosPorFornecedor() {
+
+}
+
+// Função para exibir as informações do fornecedor
+void exibirFornecedor() {
+    cout << "ID: " << fornecedorId << endl;
+    cout << "Nome: " << nome << endl;
+    cout << "Contato: " << contato << endl;
+    cout << "Endereço: " << endereco << endl;
+}
 

@@ -3,24 +3,26 @@
 
 #include <string>
 #include <vector>
-#include <sstream>
-#include <iomanip>
+
+#include "../include/Fornecedor.hpp"
 
 class Categoria {
 private:
-    std::string nome;
-    std::string prefixo;
+    std::string nomeCategoria;
+    int prefixoId;
     int contador;
 
 public:
-    Categoria(const std::string& nome, const std::string& prefixo, int contadorInicial = 1);
+    Categoria(const std::string& nomeCategoria, int prefixoId, int contadorInicial);
     
-    std::string getNomeDaCategoria() const;
-    std::string getPrefixoId() const;
+    Fornecedor* obterFornecedorPorId(int id);
+    std::string getNome() const;
+    int getPrefixoId() const;
     int getContador() const;
     void setContador(int novoContador);
-    std::string gerarProximoID();
+    int gerarProximoID();
     void atualizarContador(const std::vector<std::string>& idsExistentes);
+    void carregarProdutosDoCSV(const std::string& nomeArquivo);
 };
 
-#endif // CATEGORIA_H
+#endif

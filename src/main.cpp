@@ -1,7 +1,9 @@
 #include <iostream>
+#include "PersistenciaDeDados.cpp"
+#include "GerenciadorDeEstoque.cpp"
+#include "MenuInterativo.cpp"
 
   int main() {
-    MenuInterativo menu;
+    MenuInterativo menu(GerenciadorDeEstoque gerenciador(PersistenciaDeDados persistencia("dados.csv")));
     menu.init();
-    return 0;
 }
