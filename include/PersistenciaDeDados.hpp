@@ -9,6 +9,7 @@
 
 class PersistenciaDeDados {
 public:
+    PersistenciaDeDados(const std::string& caminhoArquivo);
     void adicionarProduto(const std::string& linha);
     std::string buscarProduto(const std::string& palavra);
     void apagarProduto(const std::string& palavra);

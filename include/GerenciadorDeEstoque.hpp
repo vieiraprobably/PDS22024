@@ -4,6 +4,8 @@
 #include <vector>
 #include <string>
 #include "PersistenciaDeDados.hpp"
+#include "Fornecedor.hpp"
+
 
 class GerenciadorDeEstoque {
 private:
@@ -14,14 +16,15 @@ public:
   
     GerenciadorDeEstoque(PersistenciaDeDados& persistencia);
 
-   
     void adicionarProduto(const std::string& produto);
 
+    void removerProduto(int id);
     
     std::string buscarProduto(const std::string& nome);
 
+    void editarProduto(int id, const std::string& novoNome, const std::string& novaCategoria, int novaQuantidade, float novoPreco, Fornecedor novoFornecedor);
     
-    void listarProdutos();
+    void listarPorCategoria(const std::string& categoria);
 };
 
 #endif

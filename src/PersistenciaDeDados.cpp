@@ -10,7 +10,9 @@ private:
 
 public:
     
-    PersistenciaDeDados(const std::string& caminho) : caminhoArquivo(caminho) {}
+    PersistenciaDeDados::PersistenciaDeDados(const std::string& caminhoArquivo) {
+    
+}
 
     
     void adicionarProduto(const std::string& linha) {

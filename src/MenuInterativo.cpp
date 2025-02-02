@@ -1,20 +1,19 @@
 #include <iostream>
 #include <string>
-#include "PersistenciaDeDados.cpp"
+#include "../include/GerenciadorDeEstoque.hpp"
 
 
 class MenuInterativo {
   private:
-    PersistenciaDeDados& persistencia;
+    GerenciadorDeEstoque& gerenciador;
 public:
-  MenuInterativo(PersistenciaDeDados& persistencia) : persistencia(persistencia) {}
+  MenuInterativo::MenuInterativo(GerenciadorDeEstoque& gerenciador) {}
     void init() {
         while (true) {
             exibirInicio();
             int escolha;
             std::cin >> escolha;
             limparBuffer();
-
             switch (escolha) {
                 case 1:
                     fluxoLogin();
