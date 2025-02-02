@@ -8,10 +8,10 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "${workspaceFolder}",
-      "program": "${workspaceFolder}/build/your_executable", 
+      "cwd": "c:/Users/mmarc/OneDrive/Área de Trabalho/Felipe/Programação/C e C++/projeto pds II/PDS22024/src",
+      "program": "c:/Users/mmarc/OneDrive/Área de Trabalho/Felipe/Programação/C e C++/projeto pds II/PDS22024/src/build/Debug/outDebug",
       "MIMode": "gdb",
-      "miDebuggerPath": "/usr/bin/gdb",
+      "miDebuggerPath": "gdb",
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",

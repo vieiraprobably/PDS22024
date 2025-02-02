@@ -4,14 +4,18 @@
 
 #include <vector>
 #include <string>
-#include "Produto.cpp"
-#include "Categoria.hpp"
-#include "Fornecedor.hpp"
 #include <iostream>
+#include "../include/MenuInterativo.hpp"
+
 class PersistenciaDeDados {
 public:
-    void salvarCSV();
-    void carregarCSV();
+    void adicionarProduto(const std::string& linha);
+    std::string buscarProduto(const std::string& palavra);
+    void apagarProduto(const std::string& palavra);
+
+
 };
+
+
 
 #endif

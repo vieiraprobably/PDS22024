@@ -12,15 +12,14 @@ public:
 
     void Cadastra_usuario(){ 
 
-
     } 
 
-bool Verifica(string& usuario, string& senha){};
+bool Verifica(string& usuario, string& senha){
 
+};
 
 
 void Acesso(){
-
 
 }
 

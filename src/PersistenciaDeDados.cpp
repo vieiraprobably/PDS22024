@@ -3,7 +3,7 @@
 #include <sstream>
 #include <vector>
 #include <string>
-
+#include "../include/Produto.hpp"
 class PersistenciaDeDados {
 private:
     std::string caminhoArquivo;
