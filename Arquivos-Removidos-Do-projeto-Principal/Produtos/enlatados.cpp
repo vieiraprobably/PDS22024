@@ -1,82 +1,189 @@
-#include "enlatados.hpp"
+// classe enlatados (sem herdar classe "item")
 #include <iostream>
 #include <fstream>
-#include <sstream>
+#include <string>
+#include <vector>
+#include <iomanip>
 
-void Enlatados::imprimeProdutos() {
-    for (const auto& produto : produtos) {
-        std::cout << "Produto: " << produto.nome << "\n";
-        std::cout << "Quantidade: " << produto.quantidade << "\n";
-        std::cout << "Preço: R$" << produto.preco << "\n";
-        std::cout << "-------------------" << std::endl;
-    }
-}
+class Enlatados {
+private:
+    struct InfoProduto {
+        std::string nome;
+        int disponivel;
+        double preco;
+        int vendido;
+    };
 
-bool Enlatados::modificaUnidadeDe(std::string Nome, int quantia, bool mod) {
-    for (auto& produto : produtos) {
-        if (produto.nome == Nome) {
-            if (mod) {
-                produto.quantidade += quantia;
-            } else {
-                if (produto.quantidade < quantia) {
-                    return false;
-                }
-                produto.quantidade -= quantia;
+    std::vector<InfoProduto> produtos;
+    double faturamentoTotal;
+    double gastosTotais;
+
+    InfoProduto* buscarProduto(const std::string &nomeProduto) {
+        for (auto &produto : produtos) {
+            if (produto.nome == nomeProduto) {
+                return &produto;
             }
-            return true;
+        }
+        return nullptr;
+    }
+
+public:
+    Enlatados() : faturamentoTotal(0.0), gastosTotais(0.0) {}
+
+    void carregarDoArquivo(const std::string &nomeArquivo) {
+        std::ifstream arquivo(nomeArquivo);
+        if (!arquivo.is_open()) {
+            std::cerr << "Erro ao abrir o arquivo." << std::endl;
+            return;
+        }
+
+        std::string nome;
+        int quantidade;
+        double preco;
+
+        while (arquivo >> nome >> quantidade >> preco) {
+            produtos.push_back({nome, quantidade, preco, 0});
+        }
+        arquivo.close();
+    }
+
+    void salvarNoArquivo(const std::string &nomeArquivo) {
+        std::ofstream arquivo(nomeArquivo);
+        if (!arquivo.is_open()) {
+            std::cerr << "Erro ao salvar o arquivo." << std::endl;
+            return;
+        }
+
+        for (const auto &produto : produtos) {
+            arquivo << produto.nome << " " << produto.disponivel << " " << produto.preco << "\n";
+        }
+        arquivo << "Faturamento Total: " << faturamentoTotal << "\n";
+        arquivo << "Gastos Totais: " << gastosTotais << "\n";
+
+        arquivo.close();
+    }
+
+    void mostrarPreco(const std::string &nomeProduto) {
+        InfoProduto* produto = buscarProduto(nomeProduto);
+        if (produto) {
+            std::cout << produto->nome << " - Preco: R$ " << std::fixed << std::setprecision(2) << produto->preco << std::endl;
+        } else {
+            std::cout << "Produto nao encontrado." << std::endl;
         }
     }
-    return false;
-}
 
-item* Enlatados::encontraUnidade(std::string Nome) {
-    for (auto& produto : produtos) {
-        if (produto.nome == Nome) {
-            return this;
+    void venderProduto(const std::string &nomeProduto, int quantidade) {
+        InfoProduto* produto = buscarProduto(nomeProduto);
+        if (produto) {
+            if (produto->disponivel >= quantidade) {
+                produto->disponivel -= quantidade;
+                produto->vendido += quantidade;
+                faturamentoTotal += produto->preco * quantidade;
+                std::cout << "Transacao concluida!" << std::endl;
+            } else {
+                std::cout << "Estoque insuficiente." << std::endl;
+            }
+        } else {
+            std::cout << "Produto nao encontrado." << std::endl;
         }
     }
-    return nullptr;
-}
 
-item* Enlatados::criaUnidade(std::string Nome, int Quantidade, float Preco) {
-    if (!encontraUnidade(Nome)) {
-        produtos.push_back({Nome, Quantidade, Preco});
-    } else {
-        modificaUnidadeDe(Nome, Quantidade, true);
+    void adicionarEstoque(const std::string &nomeProduto, int quantidade) {
+        InfoProduto* produto = buscarProduto(nomeProduto);
+        if (produto) {
+            produto->disponivel += quantidade;
+            gastosTotais += (produto->preco * 0.6) * quantidade;
+            std::cout << "Estoque atualizado!" << std::endl;
+        } else {
+            std::cout << "Produto nao encontrado." << std::endl;
+        }
     }
-    return this;
-}
 
-item* Enlatados::criaUnidade(std::string Nome, float Preco) {
-    if (!encontraUnidade(Nome)) {
-        produtos.push_back({Nome, 0, Preco});
+    void mostrarQuantidadeVendida(const std::string &nomeProduto) {
+        InfoProduto* produto = buscarProduto(nomeProduto);
+        if (produto) {
+            std::cout << produto->nome << " - Quantidade vendida: " << produto->vendido << std::endl;
+        } else {
+            std::cout << "Produto nao encontrado." << std::endl;
+        }
     }
-    return this;
-}
 
-Enlatados::Enlatados() {
-    std::ifstream bancoDeDados("../data/enlatados.txt");
-    if (!bancoDeDados.is_open()) {
-        std::cerr << "Erro ao abrir o arquivo" << std::endl;
-        return;
+    void mostrarFaturamento() {
+        std::cout << "Faturamento total: R$ " << std::fixed << std::setprecision(2) << faturamentoTotal << std::endl;
     }
-    std::string nomeProduto, linha;
-    int quantidade;
-    float preco;
-    while (std::getline(bancoDeDados, linha)) {
-        std::istringstream stream(linha);
-        std::getline(stream, nomeProduto, ' ');
-        stream >> quantidade >> preco;
-        criaUnidade(nomeProduto, quantidade, preco);
-    }
-    bancoDeDados.close();
-}
 
-Enlatados::~Enlatados() {
-    std::remove("../data/enlatados.txt");
-    std::ofstream bancoDeDados("../data/enlatados.txt");
-    for (const auto& produto : produtos) {
-        bancoDeDados << produto.nome << " " << produto.quantidade << " " << produto.preco << "\n";
+    void mostrarGastos() {
+        std::cout << "Gastos totais: R$ " << std::fixed << std::setprecision(2) << gastosTotais << std::endl;
     }
-    bancoDeDados.close();
+
+    void menu() {
+        int opcao;
+        std::string nomeArquivo;
+        std::cout << "Informe o nome do arquivo para carregar os produtos: ";
+        std::cin >> nomeArquivo;
+        carregarDoArquivo(nomeArquivo);
+
+        do {
+            std::cout << "\nMenu de Opcoes:\n";
+            std::cout << "1. Mostrar preco de produto\n";
+            std::cout << "2. Vender produto\n";
+            std::cout << "3. Adicionar estoque\n";
+            std::cout << "4. Mostrar quantidade vendida\n";
+            std::cout << "5. Mostrar faturamento\n";
+            std::cout << "6. Mostrar gastos\n";
+            std::cout << "7. Sair\n";
+            std::cout << "Escolha uma opcao: ";
+            std::cin >> opcao;
+
+            std::string nomeProduto;
+            int quantidade;
+
+            switch (opcao) {
+                case 1:
+                    std::cout << "Nome do produto: ";
+                    std::cin >> nomeProduto;
+                    mostrarPreco(nomeProduto);
+                    break;
+                case 2:
+                    std::cout << "Nome do produto: ";
+                    std::cin >> nomeProduto;
+                    std::cout << "Quantidade: ";
+                    std::cin >> quantidade;
+                    venderProduto(nomeProduto, quantidade);
+                    break;
+                case 3:
+                    std::cout << "Nome do produto: ";
+                    std::cin >> nomeProduto;
+                    std::cout << "Quantidade a adicionar: ";
+                    std::cin >> quantidade;
+                    adicionarEstoque(nomeProduto, quantidade);
+                    break;
+                case 4:
+                    std::cout << "Nome do produto: ";
+                    std::cin >> nomeProduto;
+                    mostrarQuantidadeVendida(nomeProduto);
+                    break;
+                case 5:
+                    mostrarFaturamento();
+                    break;
+                case 6:
+                    mostrarGastos();
+                    break;
+                case 7:
+                    std::cout << "Saindo do sistema...\n";
+                    salvarNoArquivo(nomeArquivo);
+                    break;
+                default:
+                    std::cout << "Opcao invalida. Tente novamente." << std::endl;
+            }
+        } 
+          while (opcao != 7);
+    }
+};
+
+int main() {
+    Enlatados enlatados;
+    enlatados.menu();
+
+    return 0;
 }
