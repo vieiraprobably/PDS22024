@@ -70,6 +70,7 @@ private:
         std::cin >> palavraSecreta;
 
         cadastrarUsuario(nome, usuario, senha, palavraSecreta);
+        menuPrincipal(usuario)
     }
 
     void menuPrincipal(const std::string& usuario) {
@@ -82,9 +83,38 @@ private:
         std::cout << "[4] Adicionar novos produtos\n";
         std::cout << "[5] Editar produto\n";
         std::cout << "[6] Remover produto\n";
-        std::cout << "[6] Gerar Relatório\n";
         std::cout << "[7] Sair\n";
         std::cout << "[Escolha]: ";
+        std::string opcao;
+        std::cin >> opcao;
+        switch (opcao) {
+                case 1:
+                    gerarRelatorio();
+                    break;
+                case 2:
+                    gerenciarFornecedores();
+                    break;
+                case 3:
+                    buscarProduto();
+                    break;
+                case 4:
+                    adicionarNovoProduto();
+                    break;
+                case 4:
+                    editarProduto();
+                    break;
+                case 6:
+                    removerProduto();
+                    break;
+                case 7:
+                    exit();
+                    break;
+                    
+                default:
+                    std::cout << "\nOpção inválida!\n";
+            }
+
+
     }
 
     bool validarCredenciais(const std::string& usuario, const std::string& senha) {
