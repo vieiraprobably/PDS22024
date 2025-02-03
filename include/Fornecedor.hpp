@@ -3,9 +3,8 @@
 
 #include <string>
 #include <vector>
-#include "Produto.hpp"  // Assuming you have a Produto class
+#include "Produto.hpp"
 
-class Fornecedor {
 private:
     int fornecedorId;
     std::string nome;
