@@ -45,7 +45,7 @@ void Fornecedor::setId(int i) {
     fornecedorId = i;
 }
 
-void Fornecedor::setNome(string n) {
+void Fornecedor::setNome( string n) {
     nome = n;
 }
 

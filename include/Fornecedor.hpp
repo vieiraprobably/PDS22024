@@ -5,6 +5,7 @@
 #include <vector>
 #include "Produto.hpp"
 
+class Fornecedor {
 private:
     int fornecedorId;
     std::string nome;
@@ -39,4 +40,5 @@ public:
     static void listarProdutosPorFornecedor();
 };
 
-#endif // FORNECEDOR_HPP
+#endif 
+
