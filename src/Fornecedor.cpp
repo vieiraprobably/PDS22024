@@ -6,15 +6,15 @@ using namespace std;
 
 #include "../include/Fornecedor.hpp"
 
-// Construtor
+
  Fornecedor::Fornecedor(int id, const std::string& n, const std::string& c, const std::string& e)
         : fornecedorId(id), nome(n), contato(c), endereco(e) {}
 
 
-// Destrutor
+
 Fornecedor::~Fornecedor() {}
 
-// Getters
+
 int Fornecedor::getId() const {
     return fornecedorId;
 }
@@ -39,7 +39,7 @@ vector<int> Fornecedor::getCategoriasAssociadas() const {
     return categoriasAssociadas;
 }
 
-// Setters
+
 
 void Fornecedor::setId(int i) {
     fornecedorId = i;
@@ -61,7 +61,7 @@ void Fornecedor::setProdutos(vector<Produto*> p) {
     produtos = p;
 }
 
-// Função para adicionar fornecedor
+
 void Fornecedor::adicionarFornecedor(int i, string n, string c, float e) {
     fornecedorId = i;
     nome = n;
@@ -69,7 +69,7 @@ void Fornecedor::adicionarFornecedor(int i, string n, string c, float e) {
     endereco = e;
 }
 
-// Função para atualizar fornecedor
+
 void Fornecedor::atualizarFornecedor(int i, string n, string c, float e) {
     fornecedorId = i;
     nome = n;
@@ -77,17 +77,17 @@ void Fornecedor::atualizarFornecedor(int i, string n, string c, float e) {
     endereco = e;
 }
 
-// Função para listar fornecedores
+
 void Fornecedor::listarFornecedores() {
     
 }
 
-// Função para listar produtos por fornecedor
+
 void Fornecedor::listarProdutosPorFornecedor() {
 
 }
 
-// Função para exibir as informações do fornecedor
+
 void exibirFornecedor() {
     cout << "ID: " << fornecedorId << endl;
     cout << "Nome: " << nome << endl;

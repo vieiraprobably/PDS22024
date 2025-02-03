@@ -185,6 +185,47 @@ private:
 
     }
 
+    void adicionarNovoProduto(){
+        std::string  nome, fornecedorID,categoria, descricao;
+        int id, quantidade;
+        float preco;
+        std::cout << "Digite um id para o produto: \n";
+        std::cin >> id;
+        std::cout << "Digite um nome para o produto: \n";
+        std::cin >> nome;
+        std::cout << "Digite a quantidade do produto: \n";
+        std::cin >> quantidade;
+        std::cout << "Digite o preço do produto: \n";
+        std::cin >> preco;
+        std::cout << "Digite a categoria do produto: \n";
+        std::cin >> categoria;
+        std::cout << "Digite uma descrição para a categoria: \n";
+        std::cin >> descricao;
+
+        Produto novoProduto = Produto(id, nome,Categoria(categoria, descricao), quantidade, preco, nullptr));
+        gerenciador.adicionarProduto(novoProduto);
+
+        std::cout << "Produto Adicionado com sucesso !!! \n";
+
+        std::cout << "Retornando ao menu principal. \n";
+
+        menuPrincipal(usuario)
+        
+
+
+    }
+
+    void removerProduto(){
+        std::cout << "\n--------------------------------------------------------------\n";
+        std::cout << "Vamos remover um produto: \n";
+        int id;
+        std::cout << "Digite o id do produto a ser removido: \n";
+        std::cin >> id;
+        gerenciador.removerProduto(id);
+        std::cout << "Produto removido com sucesso !! \n";
+
+    }
+
     bool validarCredenciais(const std::string& usuario, const std::string& senha) {
        
         return (persistencia.validarCredenciais(usuario, senha)); 
