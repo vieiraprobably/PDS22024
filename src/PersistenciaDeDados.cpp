@@ -2,9 +2,9 @@
 #include <fstream>
 #include <sstream>
 #include <iomanip>
-
-PersistenciaDeDados::PersistenciaDeDados() {
-    arquivosCSV = {
+#include <Produto.hpp>
+#include <utility> 
+std::vector<std::pair<std::string, std::string>> arquivosCSV = {
         {"Animais", "Animais.csv"},
         {"Bebidas", "Bebidas.csv"},
         {"Carnes", "Carnes.csv"},
@@ -18,6 +18,9 @@ PersistenciaDeDados::PersistenciaDeDados() {
         {"Padaria", "Padaria.csv"},
         {"Verduras", "Verduras.csv"}
     };
+
+PersistenciaDeDados::PersistenciaDeDados() {
+    
 }
 
 void PersistenciaDeDados::salvarDados(const Produto& produto) {
@@ -26,7 +29,7 @@ void PersistenciaDeDados::salvarDados(const Produto& produto) {
             std::vector<std::tuple<int, std::string, int, double, std::string>> dados = {
                 {produto.getId(), produto.getNome(), produto.getQuantidade(), produto.getPreco(), produto.getFornecedor()}
             };
-            salvarArquivo(arquivo, dados); // Salva no arquivo correspondente
+            salvarArquivo(arquivo, dados); 
         }
     }
 }
@@ -56,19 +59,19 @@ void PersistenciaDeDados::salvarArquivo(const std::string& arquivo, const std::v
 
 std::vector<std::tuple<int, std::string, int, double, std::string>> PersistenciaDeDados::carregarArquivo(const std::string& arquivo) {
     std::vector<std::tuple<int, std::string, int, double, std::string>> dados;
-    std::ifstream arquivoEntrada(arquivo); // Abre o arquivo para leitura
+    std::ifstream arquivoEntrada(arquivo); 
     std::string linha;
 
     if (arquivoEntrada.is_open()) {
         while (std::getline(arquivoEntrada, linha)) {
-            std::istringstream ss(linha); // Cria uma string stream para dividir a linha
+            std::istringstream ss(linha); 
             std::string campo;
             int id, quantidade;
             double preco;
             std::string nome, fornecedor;
 
             if (std::getline(ss, campo, ',')) id = std::stoi(campo);
-            if (std::getline(ss, campo, ',')) nome = campo; // Obtém o nome diretamente sem remover aspas
+            if (std::getline(ss, campo, ',')) nome = campo; 
             if (std::getline(ss, campo, ',')) quantidade = std::stoi(campo);
             if (std::getline(ss, campo, ',')) preco = std::stod(campo);
             if (std::getline(ss, campo)) fornecedor = campo;
@@ -270,6 +273,20 @@ std::string PersistenciaDeDados::listarProdutosPorCategoria(const std::string& c
 
 
 std::vector<Produto> PersistenciaDeDados::carregarProdutos() {
+    arquivosCSV = {
+        {"Animais", "Animais.csv"},
+        {"Bebidas", "Bebidas.csv"},
+        {"Carnes", "Carnes.csv"},
+        {"Enlatados", "Enlatados.csv"},
+        {"Frutas", "Frutas.csv"},
+        {"GraosECereais", "GraosECereais.csv"},
+        {"HigienePessoal", "HigienePessoal.csv"},
+        {"Laticinios", "Laticinios.csv"},
+        {"Limpeza", "Limpeza.csv"},
+        {"Massas", "Massas.csv"},
+        {"Padaria", "Padaria.csv"},
+        {"Verduras", "Verduras.csv"}
+    };
     std::vector<Produto> produtos;
 
     for (const auto& [categoria, arquivo] : arquivosCSV) {

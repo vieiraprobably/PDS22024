@@ -23,6 +23,7 @@ public:
     void apagarProdutoPorId(int id);
     void apagarProdutoPorNome(const std::string& nomeProduto);
     std::string listarProdutosPorCategoria(const std::string& categoriaBusca);
+    std::vector<Produto>carregarProdutos();
     void carregarDados();
 };
 

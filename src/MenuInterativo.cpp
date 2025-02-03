@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include "../include/GerenciadorDeEstoque.hpp"
-
+#include "../include/Persistencia.hpp"
 
 class MenuInterativo {
   private:

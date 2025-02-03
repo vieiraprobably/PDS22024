@@ -30,7 +30,7 @@ public:
         
     }
    
-    void buscarProduto(const std::string& nome)  {
+    Produto buscarProduto(const std::string& nome)  {
         persistencia.buscarProduto(nome)
       
     }
