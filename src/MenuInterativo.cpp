@@ -6,8 +6,10 @@
 class MenuInterativo {
   private:
     GerenciadorDeEstoque& gerenciador;
+    Relatorio& relatorio;
+    std::string usuario;
 public:
-  MenuInterativo::MenuInterativo(GerenciadorDeEstoque& gerenciador) {}
+  MenuInterativo::MenuInterativo(GerenciadorDeEstoque& gerenciador, Relatorio& relatorio) {}
     void init() {
         while (true) {
             exibirInicio();
@@ -48,6 +50,7 @@ private:
         std::cin >> senha;
         
         if (validarCredenciais(usuario, senha)) {
+            this->usuario = usuario;
             menuPrincipal(usuario);
         } else {
             std::cout << "\nErro: Usuário ou senha inválidos!\n";
@@ -114,6 +117,26 @@ private:
                     std::cout << "\nOpção inválida!\n";
             }
 
+
+    }
+
+    void gerarRelatorio(){
+        relatorio.gerarRelatorio();
+        std::cout << "\n\n";  // 
+        std::cout << "--------------------" << endl;  
+        std::cout << "Digite 0 para voltar ao menu principal" << endl;
+        int n;
+        std::cin >> n;
+        if (n == 0){
+            menuPrincipal(usuario)
+        }
+        else{
+            std::cout << "Opção inválida !! Saindo da aplicação em 3,2,1..." << endl;
+            exit()
+        }
+    }
+
+    void gerenciarFornecedores(){
 
     }
 
