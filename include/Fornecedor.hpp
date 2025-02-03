@@ -30,14 +30,6 @@ public:
     void setContato(const std::string& c);
     void setEndereco(const std::string& e);
     void setProdutos(const std::vector<Produto*>& p);
-
-    void exibirFornecedor() const;
-    void associarCategoria(int categoriaId);
-
-    static void adicionarFornecedor(int id, const std::string& n, const std::string& c, const std::string& e);
-    static void atualizarFornecedor(int id, const std::string& n, const std::string& c, const std::string& e);
-    static void listarFornecedores();
-    static void listarProdutosPorFornecedor();
 };
 
 #endif 

@@ -45,53 +45,21 @@ void Fornecedor::setId(int i) {
     fornecedorId = i;
 }
 
-void Fornecedor::setNome( string n) {
+void Fornecedor::setNome(const std::string& n) {
     nome = n;
 }
 
-void Fornecedor::setContato(string c) {
+void Fornecedor::setContato(const std::string& c) {
     contato = c;
 }
 
-void Fornecedor::setEndereco(float e) {
+void Fornecedor::setEndereco(const std::string& e) {
     endereco = e;
 }
 
-void Fornecedor::setProdutos(vector<Produto*> p) {
+void Fornecedor::setProdutos(const std::vector<Produto*>& p) {
     produtos = p;
 }
 
 
-void Fornecedor::adicionarFornecedor(int i, string n, string c, float e) {
-    fornecedorId = i;
-    nome = n;
-    contato = c;
-    endereco = e;
-}
-
-
-void Fornecedor::atualizarFornecedor(int i, string n, string c, float e) {
-    fornecedorId = i;
-    nome = n;
-    contato = c;
-    endereco = e;
-}
-
-
-void Fornecedor::listarFornecedores() {
-    
-}
-
-
-void Fornecedor::listarProdutosPorFornecedor() {
-
-}
-
-
-void exibirFornecedor() {
-    cout << "ID: " << fornecedorId << endl;
-    cout << "Nome: " << nome << endl;
-    cout << "Contato: " << contato << endl;
-    cout << "Endereço: " << endereco << endl;
-}
 
