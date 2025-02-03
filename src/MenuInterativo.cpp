@@ -84,9 +84,8 @@ private:
         std::cout << "[2] Gerenciar fornecedores\n";
         std::cout << "[3] Buscar produto\n";
         std::cout << "[4] Adicionar novos produtos\n";
-        std::cout << "[5] Editar produto\n";
-        std::cout << "[6] Remover produto\n";
-        std::cout << "[7] Sair\n";
+        std::cout << "[5] Remover produto\n";
+        std::cout << "[6] Sair\n";
         std::cout << "[Escolha]: ";
         std::string opcao;
         std::cin >> opcao;
@@ -103,13 +102,10 @@ private:
                 case 4:
                     adicionarNovoProduto();
                     break;
-                case 4:
-                    editarProduto();
-                    break;
-                case 6:
+                case 5:
                     removerProduto();
                     break;
-                case 7:
+                case 6:
                     exit();
                     break;
                     
@@ -137,6 +133,55 @@ private:
     }
 
     void gerenciarFornecedores(){
+        std::cout << "\n--------------------------------------------------------------\n";
+        std::cout << "[1] Adicionar Fornecedor\n";
+        std::cout << "[2] Listar Fornecedores\n";
+        std::cout << "[3] Excluir fornecedor\n";
+        std::cout << "[Escolha]: ";
+        std::string opcao;
+        std::cin >> opcao;
+        switch (opcao) {
+                case 1:
+                    adicionarFornecedor();
+                    break;
+                case 2:
+                    listarFornecedores();
+                    break;
+                case 3:
+                    excluirFornecedore();
+                    break;
+                 default:
+                    std::cout << "\nOpção inválida!\n";
+        }
+
+
+    }
+
+
+    void buscarProduto(){
+        std::cout << "\n--------------------------------------------------------------\n";
+        std::cout << "[1] Digite o nome ou id do produto: \n";
+        std::string opcao;
+        std::cin >> opcao;
+        Produto produto = gerenciador.buscarProduto(opcao);
+        if (produto != nullptr){
+            produto.exibirProduto();
+            std::cout << "\nDigite 0 para voltar ao menu principal\n";
+            int n;
+        std::cin >> n;
+            if (n == 0){
+            menuPrincipal(usuario)
+            }
+            else{
+            std::cout << "Opção inválida !! Saindo da aplicação em 3,2,1..." << endl;
+            exit()
+        }
+        }
+        else{
+            std::cout << "\nProduto não encontrado\n";
+            buscarProduto();
+
+        }
 
     }
 
