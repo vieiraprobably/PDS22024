@@ -113,7 +113,7 @@ Produto PersistenciaDeDados::buscarProduto(const std::string& nomeProduto) {
 
            
             if (nome == nomeProduto) {
-                return Produto(id, nome, quantidade, preco, fornecedor, categoria);
+                return Produto(id, nome, nullptr, quantidade, preco, nullptr);
             }
         }
     }
@@ -273,20 +273,7 @@ std::string PersistenciaDeDados::listarProdutosPorCategoria(const std::string& c
 
 
 std::vector<Produto> PersistenciaDeDados::carregarProdutos() {
-    arquivosCSV = {
-        {"Animais", "Animais.csv"},
-        {"Bebidas", "Bebidas.csv"},
-        {"Carnes", "Carnes.csv"},
-        {"Enlatados", "Enlatados.csv"},
-        {"Frutas", "Frutas.csv"},
-        {"GraosECereais", "GraosECereais.csv"},
-        {"HigienePessoal", "HigienePessoal.csv"},
-        {"Laticinios", "Laticinios.csv"},
-        {"Limpeza", "Limpeza.csv"},
-        {"Massas", "Massas.csv"},
-        {"Padaria", "Padaria.csv"},
-        {"Verduras", "Verduras.csv"}
-    };
+ 
     std::vector<Produto> produtos;
 
     for (const auto& [categoria, arquivo] : arquivosCSV) {
@@ -314,7 +301,7 @@ std::vector<Produto> PersistenciaDeDados::carregarProdutos() {
             quantidade = std::stoi(quantidadeStr);
             preco = std::stod(precoStr);
 
-            Produto produto(id, nome, quantidade, preco, fornecedor);
+            Produto produto(id, nome, nullptr, quantidade, preco,nullptr);
             produtos.push_back(produto);
         }
     }

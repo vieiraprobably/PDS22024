@@ -1,4 +1,5 @@
 #include "../include/Produto.hpp"
+#include "../include/Fornecedor.hpp"
 #include <iostream>
 
 Produto::Produto() : id(0), nome(""), categoria(nullptr), quantidade(0), preco(0.0), fornecedor(nullptr) {}
@@ -17,7 +18,7 @@ std::string Produto::getNome() const {
 }
 
 Categoria* Produto::getCategoria() const {
-    return categoria.nome;
+    return categoria.getNome();
 }
 
 int Produto::getQuantidade() const {
